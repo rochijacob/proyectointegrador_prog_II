@@ -1,6 +1,6 @@
-let controller = {
+let controllerLogin = {
     index: (req, res) => {
-        res.render('index', {title: 'Mercado Liebre'})
+        res.render('login', {title: 'Mercado Liebre'})
     },
     register: (req, res) => {
         res.render('register')
@@ -10,4 +10,4 @@ let controller = {
 
 
 
-module.exports= controller;
+module.exports= controllerLogin;
