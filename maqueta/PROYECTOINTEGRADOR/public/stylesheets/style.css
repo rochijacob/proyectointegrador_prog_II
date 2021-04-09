@@ -1,7 +1,25 @@
+.container_form{
+  padding: 3% 20%;  
+}
 .formulario {
   margin: 0 auto;
 }
 
 .formulario_input {
   padding: 20px 10px;
+}
+
+.input-group-text {
+  padding: 1.25rem 1rem;
+}
+
+.line_break {
+  color: gray;
+  height: 2px !important;
+  margin: 20%;
+}
+
+.boton{
+  margin: 0 auto;
+  width: 50%;
 }
