@@ -1,4 +1,4 @@
-let controllerLogin = {
+let homeController = {
     index: (req, res) => {
         res.render('index', {title: 'Mercado Liebre'})
     },
@@ -7,10 +7,23 @@ let controllerLogin = {
     },
     login: (req, res) => {
         res.render('login', {title: 'Mercado Liebre'})
-    }
+    },
+    product: (req, res) => {
+        res.render('product')
+    },
+    profile: (req, res) => {
+        res.render('profile')
+    },
+    headerLogueado: (req, res) => {
+        res.render('headerLogueado')
+    },
+    searchResults: (req, res) => {
+        res.render('searchResults')
+    },
+    // cambie el nombre, antes era search-results
 
 }
 
 
 
-module.exports= controllerLogin;
+module.exports= homeController;
