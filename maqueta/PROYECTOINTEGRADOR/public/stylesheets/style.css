@@ -1,8 +1,7 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.formulario {
+  margin: 0 auto;
 }
 
-a {
-  color: #00B7FF;
+.formulario_input {
+  padding: 20px 10px;
 }
