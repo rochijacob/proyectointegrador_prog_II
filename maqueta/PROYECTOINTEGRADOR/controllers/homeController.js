@@ -21,7 +21,12 @@ let homeController = {
         res.render('searchResults')
     },
     // cambie el nombre, antes era search-results
-
+    productAdd: (req, res) => {
+        res.render('productAdd')
+    },
+    profileEdit: (req, res) => {
+        res.render('profileEdit')
+    },
 }
 
 

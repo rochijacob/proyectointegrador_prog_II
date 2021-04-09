@@ -17,6 +17,10 @@ router.get('/headerLogueado', homeController.headerLogueado);
 
 router.get('/searchResults', homeController.searchResults);
 
+router.get('/productAdd', homeController.productAdd);
+
+router.get('/profileEdit', homeController.profileEdit);
+
 
 
 
