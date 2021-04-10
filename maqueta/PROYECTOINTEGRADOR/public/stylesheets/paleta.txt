@@ -1,0 +1,11 @@
+Steadler Blue: #144c8c; rgb(20,76,140); // Hex y rgb
+Stadler Blue rebajado; #4c6ca4;
+Blue clarito: #f2f4fa;
+botones:#8494c3;
+
+
+FONTS
+'Lato', sans-serif  --> Para todo
+font-family: 'Poppins', sans-serif; -->Titulos
+font-family: 'Quicksand', sans-serif; --> Subtitulos
+font-family: 'Titillium Web', sans-serif; --> Links

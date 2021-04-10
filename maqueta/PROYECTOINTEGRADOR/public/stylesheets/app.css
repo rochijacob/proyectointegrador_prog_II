@@ -6,6 +6,7 @@
 :root {
   --yellow: #EAC926;
   --dark-blue: #03264C;
+  --staedtler-blue:#144c8c;
   --light-blue: #1259c3;
   --gray: #666666;
   --light-gray: #ebebeb;
@@ -27,8 +28,8 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
-  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   background-color: var(--light-gray);
 }
 
@@ -43,6 +44,15 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+h4, h5, h6 {
+  font-family: 'Quicksand', sans-serif;
 }
 
 figure {
@@ -59,16 +69,11 @@ textarea {
   font-family: inherit;
 }
 
-hr {
-  border: none;
-  border-bottom: solid 1px var(--light-gray);
-}
-
 
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--dark-blue);
+  background-color: var(--staedtler-blue);
   color: white;
 }
 

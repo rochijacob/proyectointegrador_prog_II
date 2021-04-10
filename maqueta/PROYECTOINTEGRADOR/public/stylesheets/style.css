@@ -1,3 +1,37 @@
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #426bff;
+}
+::-webkit-scrollbar-track {
+  background: #919191;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #919191;
+}
+::-webkit-scrollbar-track:active {
+  background: #ffffff;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .container_form{
   padding: 3% 20%;  
 }
@@ -10,7 +44,12 @@
 }
 
 .input-group-text {
+  padding: 1.25rem 1.5rem;
+}
+
+input.form-control {
   padding: 1.25rem 1rem;
+  font-size: 18px;
 }
 
 .line_break {
@@ -20,6 +59,24 @@
 }
 
 .boton{
+  text-align: center!important;
   margin: 0 auto;
   width: 50%;
+  padding: 20px;
+}
+
+input.btn {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.title_center {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+a:hover {
+  color: #d1ddff!important;
+  transition: 0.8s;
 }
