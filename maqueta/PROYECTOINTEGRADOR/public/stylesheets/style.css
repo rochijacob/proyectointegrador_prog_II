@@ -95,3 +95,8 @@ a:hover {
   color: #d1ddff!important;
   transition: 0.8s;
 }
+
+.edit_grid{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
