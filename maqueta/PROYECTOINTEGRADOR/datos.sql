@@ -1,11 +1,15 @@
 CREATE TABLE usuario (
-	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	id INT UNSIGNED PRIMARY KEY,
     nombre_apellido VARCHAR(150),
     usuario VARCHAR(150),
     email VARCHAR(150),
     edad TINYINT(255),
-    fecha_nacimiento DATE
+    fecha_nacimiento DATE 
 );
+
+DESCRIBE usuario;
+
+DROP TABLE usuario;
 
 CREATE TABLE producto (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
