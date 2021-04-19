@@ -9,7 +9,7 @@ router.get('/register', homeController.register); // esto crea el siguiente link
 
 router.get('/login', homeController.login);
 
-router.get('/product', homeController.product);
+router.get('/product/', homeController.product);
 
 router.get('/profile', homeController.profile);
 
