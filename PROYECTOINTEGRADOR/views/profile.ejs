@@ -19,7 +19,8 @@
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+					<button class="btn mt-3 ml-4 follow" id="seguir">SEGUIR</button>
+					<button class="btn mt-3 ml-4 follow" id="deseguir">DESSEGUIR</button>
 				</div>
 				<div>
 					<ul class="">
@@ -164,4 +165,18 @@
 	<%- include('./partials/footer')%>
 	<!-- /footer -->
 </body>	
+<script>
+	document.getElementById("seguir").addEventListener("click", function(){
+    let deseguir = document.querySelector("#deseguir");
+    deseguir.style = "display: block;";
+	let seguir = document.querySelector("#seguir");
+	seguir.style = "display: none;"
+	})
+	document.getElementById("deseguir").addEventListener("click", function(){
+		let deseguir = document.querySelector("#deseguir");
+		deseguir.style = "display:none;"
+		let seguir = document.querySelector("#seguir");
+		seguir.style = "display: block;"
+	})
+</script>
 </html>

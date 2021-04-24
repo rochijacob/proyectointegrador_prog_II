@@ -65,10 +65,13 @@
 						</article>
 
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" id="form"> <!-- METHOD POST-->
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						<button type="submit" class="buy-now-button" id="add-comment">AGREGAR COMENTARIO</button>
 					</form>
+					<div class="thank-u">
+						<p id="demo"></p>
+					</div>
 					<hr>
 				</div>
 			</div>
@@ -79,6 +82,6 @@
 	<!-- footer -->
 	<%- include('./partials/footer')%>
 	<!-- /footer -->
-
+	<script src="/javascripts/buttons.js"></script>
 </body>	
 </html>

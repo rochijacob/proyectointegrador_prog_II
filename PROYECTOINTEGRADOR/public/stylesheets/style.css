@@ -112,3 +112,28 @@ a:hover {
   background-color: var(--staedtler-blue);
   padding: 1%;
 }
+
+.thank-u {
+  background-color: rgba(0, 128, 0, 0.808);
+  margin: 0 auto;
+  padding: 5px 20px;
+  color: #ffffff;
+  font-weight: 700;
+  display: none;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.follow {
+  background: rgb(255,198,89);
+  background: linear-gradient(62deg, rgba(255,198,89,1) 0%, rgba(255,94,94,1) 100%);
+  border: 1px orange;
+}
+
+#deseguir {
+  display: none;
+}
+.follow:hover {
+  color: rgb(207, 207, 207);
+}
