@@ -1,12 +1,12 @@
 let homeController = {
     index: (req, res) => {
-        res.render('index', {title: 'Mercado Liebre'})
+        res.render('index')
     },
     register: (req, res) => {
         res.render('register')
     },
     login: (req, res) => {
-        res.render('login', {title: 'Mercado Liebre'})
+        res.render('login')
     },
     product: (req, res) => {
         res.render('product')

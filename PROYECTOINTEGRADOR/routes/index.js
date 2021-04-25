@@ -21,10 +21,4 @@ router.get('/productAdd', homeController.productAdd);
 
 router.get('/profileEdit', homeController.profileEdit);
 
-
-
-
-
-
-
 module.exports = router;
