@@ -1,9 +1,14 @@
+DROP DATABASE IF EXISTS datos;
+CREATE DATABASE datos;
+USE datos;
+
 CREATE TABLE usuario (
 	id INT UNSIGNED PRIMARY KEY,
     nombre_apellido VARCHAR(150),
     usuario VARCHAR(150),
     email VARCHAR(150),
     edad TINYINT(255),
+    seguidores TINYINT(255),
     fecha_nacimiento DATE 
 );
 
