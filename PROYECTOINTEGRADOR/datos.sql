@@ -93,7 +93,3 @@ INSERT INTO comentarios (id, product_id, usuario_id, texto, fecha_creacion) VALU
 (38,4, 2, "Increibles", '2021/04/11'),
 (39,3, 1, "Le encantaron a mis hijos", '2021/04/11'),
 (40,3, 3, "Fascinantes!!!!", '2021/04/11');
-
-
- 
-

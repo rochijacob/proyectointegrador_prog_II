@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 let homeController = require ('../controllers/homeController');
+let searchController = require ('../controllers/searchController');
+let productController = require ('../controllers/productController');
 
 /* GET home page. */
 router.get('/', homeController.index);
@@ -9,13 +11,14 @@ router.get('/register', homeController.register); // esto crea el siguiente link
 
 router.get('/login', homeController.login);
 
-router.get('/product/', homeController.product);
+router.get('/product/:id', productController.detalle);
 
 router.get('/profile', homeController.profile);
 
 router.get('/headerLogueado', homeController.headerLogueado);
 
-router.get('/searchResults', homeController.searchResults);
+//router.get('/searchResults', homeController.searchResults);
+router.get('/buscar', searchController.search); 
 
 router.get('/productAdd', homeController.productAdd);
 

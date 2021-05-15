@@ -137,3 +137,45 @@ a:hover {
 .follow:hover {
   color: rgb(207, 207, 207);
 }
+
+.results_search {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 50px 0px 50px;
+}
+.results_producto {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 0px 10px;
+  box-shadow: 3px 5px 10px #00000008;
+}
+
+.results_image {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 30%;
+}
+
+.results_image img {
+  width: 100%;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.results_info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.results_nombre_producto {
+  font-size: 25px;
+  text-transform: capitalize;
+  align-items: center;
+  padding: 5px 0px 5px 20px;
+}

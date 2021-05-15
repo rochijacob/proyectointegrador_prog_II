@@ -7,7 +7,21 @@
 </head>
 
 <body>
-	
+	<div class="results_search">
+		<% lista.forEach(element => { %>
+		<a class="results_producto" href="/product/<%= element.id %>">
+			<div class="results_image">
+				<img src="/images/products/lapiz.jpg" alt=" <%= element.nombre_producto %>" width="20px">
+			</div>
+			<div class="results_info">
+				<h1 class="results_nombre_producto"><%= element.nombre_producto %> </h1> <!-- Es el lista: resultado que defini en el controlador -->
+				<p class="descripcion_producto">Lapiz utilizado por artistas plasticos profesionales y dibujantes.</p>
+				<button class="btn btn-primary conocer_mas">Conocer más</button>
+			</div>
+		</a>
+		<% }) %>	
+	</div>
+
 
 	<div class="container products-wrapper">
 		<div class="row">

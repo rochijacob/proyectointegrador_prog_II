@@ -334,6 +334,12 @@ textarea {
   line-height: 1.5;
 }
 
+.product-detail-fecha {
+  padding: 0px 15px 0px 40px;
+  color: grey;
+  font-size: 1.5em;
+}
+
 .product-detail-price {
   font-size: 5.5em;
   margin: 10px 0;
