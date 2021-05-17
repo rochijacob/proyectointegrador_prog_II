@@ -167,15 +167,26 @@ a:hover {
   border-radius: 10px 0px 0px 10px;
 }
 
+.descripcion_producto {
+  font-size: 13px;
+  padding: 5px 0px 5px 20px;
+}
+
 .results_info {
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .results_nombre_producto {
   font-size: 25px;
   text-transform: capitalize;
   align-items: center;
-  padding: 5px 0px 5px 20px;
+  padding: 5px 10px 5px 20px;
+}
+
+.conocer_mas {
+  margin: 10px 20%;
 }

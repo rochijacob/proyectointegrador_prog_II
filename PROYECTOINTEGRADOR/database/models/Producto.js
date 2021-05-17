@@ -5,14 +5,17 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        url: {
-            type: dataTypes.TEXT
-        },
         nombre_producto: {
             type: dataTypes.STRING
         },
         fecha_creacion: {
             type: dataTypes.DATEONLY
+        },
+        imagen: {
+            type: dataTypes.TEXT
+        },
+        descripcion: {
+            type:dataTypes.INTEGER
         },
     },  //configuracion
     {

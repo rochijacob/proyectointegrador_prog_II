@@ -14,10 +14,11 @@ CREATE TABLE usuario (
 
 CREATE TABLE producto (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    url TEXT,
 	nombre_producto VARCHAR(255),
     fecha_creacion DATE,
     usuario_id INT UNSIGNED,
+    imagen TEXT,
+    descripcion VARCHAR(255),
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
