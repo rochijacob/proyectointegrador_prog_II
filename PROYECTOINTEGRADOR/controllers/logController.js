@@ -2,7 +2,7 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 module.exports = {
     /*
