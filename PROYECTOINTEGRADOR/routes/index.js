@@ -3,6 +3,8 @@ var router = express.Router();
 let homeController = require ('../controllers/homeController');
 let searchController = require ('../controllers/searchController');
 let productController = require ('../controllers/productController');
+const logController = require('../controllers/logController');
+// const logController = require('../controllers/logController');
 
 /* GET home page. */
 router.get('/', homeController.index);
@@ -23,5 +25,13 @@ router.get('/buscar', searchController.search);
 router.get('/productAdd', homeController.productAdd);
 
 router.get('/profileEdit', homeController.profileEdit);
+
+router.get('/register', logController.registerForm);
+router.post('/register', logController.registerCreateUser);
+
+router.get('/login', logController.loginForm);
+router.post('/login', logController.loginValidate);
+
+router.get('/logout', logController.logout);
 
 module.exports = router;

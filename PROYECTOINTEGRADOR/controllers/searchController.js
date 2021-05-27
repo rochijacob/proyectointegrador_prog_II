@@ -13,10 +13,10 @@ module.exports = {
         console.log(filtro)
 
         db.Productos.findAll(filtro).then(resultado => {
+            console.log(resultado)
             res.render('searchResults', {
                 lista: resultado 
             });
-            console.log(resultado)
         });
     },
 }

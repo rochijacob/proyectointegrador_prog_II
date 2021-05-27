@@ -6,7 +6,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
         nombre_apellido: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            field: "nombre y apellido"
         },
         usuario: {
             type: dataTypes.STRING
@@ -22,6 +23,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         fecha_nacimiento: {
             type: dataTypes.DATEONLY
+        },
+        pass: {
+            type: dataTypes.STRING,
+            field: "password"
         },
     }, //configuracion
     {
