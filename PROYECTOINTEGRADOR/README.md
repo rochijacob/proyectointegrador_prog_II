@@ -1,14 +1,15 @@
-=========STEADLER BACKEND PROYECT =========
+**STEADLER BACKEND PROYECT**
 
----------CONFIGURACION DEL PROYECTO---------
+# CONFIGURACION DEL PROYECTO
     1 - express
-    2 - 
-    3 - 
+    2 - paso 2
+    3 - paso 3
 
----------PAQUETES INSTALADOS---------
+---
+
+# PAQUETES INSTALADOS
 
 ```
-# code block
 sequelize
     npm i sequelize
 express-session
