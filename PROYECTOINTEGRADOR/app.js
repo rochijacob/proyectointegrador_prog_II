@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const session = require('express-session'); //Entry point de la aplicacion 
 
 app.use(session( { //ejecutacion de la funcion session(), recibe un objeto literal con la propiedad secret con un texto unico aleatorio (identifica nuestro sitio web)
-  secret: "steadler login", //texto que identifica la aplicacion
+  secret: "steadler login", //texto que identifica la aplicacion, totalmente customizable
 	resave: false,
 	saveUninitialized: true
 }));
@@ -58,7 +58,7 @@ app.use(function(req, res, next) {
 // Cargamos variables en locals, para que puedan ser usadas en todas las vistas (por ej, logueado)
 
 app.use(function(req, res, next) {
-  if(req.session.usuario){
+  if(req.session.usuario){ //me permite guardar variables de la sesion --> las busco con <%= locals.logueado %>. Genero variables disponibles a todas las vistas, (=/= las rutas que me definian variables para cada vista)
     res.locals = {
       logueado: true
     }
