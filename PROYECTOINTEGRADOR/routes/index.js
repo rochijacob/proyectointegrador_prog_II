@@ -26,8 +26,10 @@ router.get('/productAdd', homeController.productAdd);
 
 router.get('/profileEdit', homeController.profileEdit);
 
-// router.get('/register', logController.registerForm);
-// router.post('/register', logController.registerCreateUser);
+//necesito dos metodos. 
+
+router.get('/register', logController.registerForm);
+router.post('/register', logController.registerCreateUser); //toma los datos del formulario y los usa para crear el usuario en la base de datos
 
 // router.get('/login', logController.loginForm);
 // router.post('/login', logController.loginValidate);

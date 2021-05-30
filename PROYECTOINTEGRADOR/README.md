@@ -12,10 +12,14 @@
 
 sequelize
     ```npm i sequelize```
+
 express-session
     ```npm i express-session --save```
+
 cookie-parser (modulo ya instalado con express modules)
     ```npm i cookie-parser --save```
 
+bcrypt.js
+    ```npm i bycryptjs```
 
 

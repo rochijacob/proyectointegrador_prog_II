@@ -3,7 +3,7 @@ CREATE DATABASE datos;
 USE datos;
 
 CREATE TABLE usuario (
-	id INT UNSIGNED PRIMARY KEY,
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     nombre_apellido VARCHAR(150),
     usuario VARCHAR(150),
     email VARCHAR(150),
@@ -11,6 +11,11 @@ CREATE TABLE usuario (
     seguidores TINYINT(255),
     fecha_nacimiento DATE 
 );
+
+SELECT * FROM usuario;
+
+ALTER TABLE usuario DROP COLUMN seguidores;
+ALTER TABLE usuario ADD pass VARCHAR(255);
 
 CREATE TABLE producto (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -21,6 +26,8 @@ CREATE TABLE producto (
     descripcion VARCHAR(255),
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
+
+SELECT * FROM producto;
 
 CREATE TABLE comentarios (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
