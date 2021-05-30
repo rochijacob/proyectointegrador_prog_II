@@ -52,7 +52,7 @@ module.exports = {
 
                 // En caso de que haya seleccionado recodarme, guardamos una cookie
                 if(req.body.remember){
-                    res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 });
+                    res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 }); //guarda la cookie, que se define del lado del cliente, en este caso mi objeto seria 'userId' (el nombre de la cookie)
                 }
             }
             res.redirect('/');
