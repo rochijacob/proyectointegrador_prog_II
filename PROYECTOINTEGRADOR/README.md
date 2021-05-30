@@ -1,9 +1,9 @@
 # STEADLER BACKEND PROYECT
 
 ## CONFIGURACION DEL PROYECTO
-    1. express
-    2. paso 2
-    3. paso 3
+1. express
+2. paso 2
+3. paso 3
 
 ---
 
