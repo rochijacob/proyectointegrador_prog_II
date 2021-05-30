@@ -20,15 +20,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//Es importante que la configuracion de la sesion se encuentre en esta posicion ya que son "pre-requisitos" de los routers
+
+
+
+
+
 // Habilitamos a express a usar sesiones (req.session.abc)
 
-const session = require('express-session');
+const session = require('express-session'); //Entry point de la aplicacion 
 
-app.use(session( {
-  secret: "sistema de login",
+app.use(session( { //ejecutacion de la funcion session(), recibe un objeto literal con la propiedad secret con un texto unico aleatorio (identifica nuestro sitio web)
+  secret: "steadler login", //texto que identifica la aplicacion
 	resave: false,
 	saveUninitialized: true
 }));
+
+
+
 
 // Leer la cookie y loguear al usuario, si no esta logueado (no esta cargado en la sesion)
 
