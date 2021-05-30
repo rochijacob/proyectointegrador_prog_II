@@ -4,6 +4,7 @@ let homeController = require ('../controllers/homeController');
 let searchController = require ('../controllers/searchController');
 let productController = require ('../controllers/productController');
 const logController = require('../controllers/logController');
+const { Router } = require('express');
 // const logController = require('../controllers/logController');
 
 /* GET home page. */
@@ -14,6 +15,7 @@ router.get('/register', homeController.register); // esto crea el siguiente link
 router.get('/login', homeController.login);
 
 router.get('/product/:id', productController.detalle);
+router.post('/borrar', homeController.borrar);
 
 router.get('/profile', homeController.profile);
 
@@ -23,6 +25,7 @@ router.get('/profile', homeController.profile);
 router.get('/buscar', searchController.search); 
 
 router.get('/productAdd', homeController.productAdd);
+router.post('/productAdd', homeController.agregarProducto);
 
 router.get('/profileEdit', homeController.profileEdit);
 
@@ -35,5 +38,6 @@ router.post('/register', logController.registerCreateUser); //toma los datos del
 // router.post('/login', logController.loginValidate);
 
 // router.get('/logout', logController.logout);
+
 
 module.exports = router;

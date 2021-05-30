@@ -6,7 +6,11 @@
 </head>
 <body>
 	<!-- product detail -->
-	
+	<form action="/borrar" method="POST">
+		<input type="hidden" name="id" value="<%= lista.id %>">
+		<input type="submit" value="Borrar">
+	  </form>
+	  
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title" style="text-transform: capitalize;"> <%= lista.nombre_producto %></h2> 

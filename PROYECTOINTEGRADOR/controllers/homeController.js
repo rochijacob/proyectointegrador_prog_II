@@ -1,3 +1,5 @@
+const db = require("../database/models")
+
 let homeController = {
     index: (req, res) => {
         res.render('index')
@@ -24,9 +26,31 @@ let homeController = {
     productAdd: (req, res) => {
         res.render('productAdd')
     },
+    agregarProducto: (req, res) => {
+        db.Productos.create({
+            imagen: req.body.imagen,
+            nombre_producto: req.body.nombre,
+            descripcion: req.body.descripcion
+        }).then(productoCreado => {
+            res.redirect('/product/' + productoCreado.id);
+        }).catch(error =>{
+            console.log(error);
+        })
+    },
     profileEdit: (req, res) => {
         res.render('profileEdit')
     },
+    borrar: (req, res) => {
+        db.Productos.destroy({
+            where: {
+                id: req.body.id
+            }
+        }).then(() => {
+            res.redirect('/productAdd/');
+        }).catch(error => {
+            console.log(error)
+        })
+    }
 }
 
 
