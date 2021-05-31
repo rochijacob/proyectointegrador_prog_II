@@ -30,9 +30,9 @@ module.exports = {
         }).then(usuario => { 
             res.redirect('/profile'); //redirect tiene que ir al profile del usuario
         })
-        .catch(function(err) {
+        .catch(err => {
             // print the error details
-            console.log(err, usuario);
+            console.log(err);
         });
 
     },
