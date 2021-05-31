@@ -7,7 +7,7 @@ module.exports = {
     search: (req, res) => {
         const filtro = {
             where: {
-                nombre_producto: {[Op.like]: '%' + req.query.filtro + '%'}
+                nombre_producto: {[Op.like]: '%' + req.query.filtro + '%'} // req.query.filtro capta el name de mi formulario de search y me trae los resultados que se asemejan a lo escrito
             }
         };
         console.log(filtro)
