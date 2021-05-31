@@ -15,7 +15,7 @@ module.exports = {
         db.Productos.findAll(filtro).then(resultado => {
             console.log(resultado)
             res.render('searchResults', {
-                lista: resultado 
+                lista: resultado
             });
         });
     },

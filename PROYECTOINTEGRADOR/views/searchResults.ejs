@@ -8,6 +8,7 @@
 
 <body>
 	<div class="results_search">
+		<% if (lista != null) { %> 
 		<% lista.forEach(element => { %>
 		<div class="results_producto" href="/product/<%= element.id %>">
 			<div class="results_image">
@@ -19,7 +20,10 @@
 				<button class="btn btn-primary conocer_mas" onclick="window.location.href='/product/<%= element.id %>'">Conocer más</button>
 			</div>
 		</div>
-		<% }) %>	
+		<% }) %>
+		<% } else { %> 
+			<h1 style="color: black;"> no se han encontrado tus resultados</h1>
+		<% } %>	
 	</div>
 
 
