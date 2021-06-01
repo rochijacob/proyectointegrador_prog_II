@@ -25,7 +25,9 @@ module.exports = {
         
         db.Usuarios.create({
             nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
-
+            usuario: req.body.usuario,
+            email: req.body.email,
+            fecha_nacimiento: req.body.fechanacimiento,
             pass: passEncriptada
         }).then(usuario => { 
             res.redirect('/profile'); //redirect tiene que ir al profile del usuario

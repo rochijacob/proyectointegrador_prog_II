@@ -14,12 +14,6 @@ module.exports = (sequelize, dataTypes) => {
         email: {
             type: dataTypes.STRING
         },
-        edad: {
-            type: dataTypes.STRING
-        },
-        seguidores: {
-            type: dataTypes.STRING
-        },
         fecha_nacimiento: {
             type: dataTypes.DATEONLY
         },

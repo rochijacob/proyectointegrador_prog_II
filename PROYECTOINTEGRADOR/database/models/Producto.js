@@ -8,9 +8,6 @@ module.exports = (sequelize, dataTypes) => {
         nombre_producto: {
             type: dataTypes.STRING
         },
-        fecha_creacion: {
-            type: dataTypes.DATEONLY
-        },
         imagen: {
             type: dataTypes.TEXT
         },

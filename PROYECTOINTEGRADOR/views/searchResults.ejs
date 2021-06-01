@@ -8,7 +8,9 @@
 
 <body>
 	<div class="results_search">
-		<% if (lista != null) { %> 
+		<% if (lista == undefined || lista == 0){ %> 
+			<p>no se han encontrado resultados</p>
+		<% } %>
 		<% lista.forEach(element => { %>
 		<div class="results_producto" href="/product/<%= element.id %>">
 			<div class="results_image">
@@ -21,9 +23,7 @@
 			</div>
 		</div>
 		<% }) %>
-		<% } else { %> 
-			<h1 style="color: black;"> no se han encontrado tus resultados</h1>
-		<% } %>	
+
 	</div>
 
 

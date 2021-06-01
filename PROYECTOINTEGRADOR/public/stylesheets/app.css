@@ -498,7 +498,7 @@ textarea.form-input {
   }
 
   .banner {
-    height: 320px;
+    height: auto;
   }
 
   .btn-toggle-navbar {
