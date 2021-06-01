@@ -6,17 +6,18 @@
 </head>
 <body>
 	<!-- product detail -->
-	<form action="/borrar" method="POST">
-		<input type="hidden" name="id" value="<%= lista.id %>">
-		<input type="submit" value="Borrar">
-	  </form>
 	  
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title" style="text-transform: capitalize;"> <%= lista.nombre_producto %></h2> 
+			<!-- aca va el boton de editar -->
 			<p class="product-detail-description">
 				<a href="/productAdd/">Editar</a>
 			</p>
+			<form action="/borrar" method="POST">
+				<input type="hidden" name="id" value="<%= lista.id %>">
+				<input type="submit" value="Borrar">
+			  </form>
 		</div>
 		<div class="product-detail">
 			<div class="row">
