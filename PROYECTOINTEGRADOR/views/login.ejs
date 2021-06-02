@@ -3,7 +3,11 @@
 <!-- Include Head -->
 
 <head>
-	<%- include('./partials/headerNotLogged')%>
+	<% if(! logueado) { %>
+		<%- include('./partials/headerNotLogged')%>
+		<% } else { %>
+			<%- include('./partials/headerLogged')%>
+			<% } %>
 </head>
 
 <body>
@@ -12,6 +16,7 @@
 			<div class="col-12 title_center">
 				<h2 class="products-title">Ingresá</h2>
 				<h4>Te extrañamos!! Que suerte que volviste!</h4>
+				
 			</div>
 			<div class="container_form">
 			<div class="input-group mb-3 col-md-6 formulario">
@@ -20,7 +25,7 @@
 						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 					</svg>
 				</span>
-				<input type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1" value="valudrechsler">
+				<input type="text" class="form-control" name="name" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1" value="valudrechsler">
 			</div>
 			<div class="input-group mb-3 col-md-6 formulario">
 				<span class="input-group-text" id="basic-addon1">
@@ -28,7 +33,10 @@
 						<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
 					</svg>
 				</span>
-				<input type="password" class="form-control" placeholder="Constraseña" aria-label="Contraseña" aria-describedby="basic-addon1" value="qwerty">
+				<input type="password" class="form-control" name="pass" placeholder="Constraseña" aria-label="Contraseña" aria-describedby="basic-addon1" value="qwerty">
+			</div>
+			<div>
+				<Br> Recordame! <input type="checkbox" name="remember" id=""> </br>
 			</div>
 			<hr class="my-4 line_break">
 				<div class="boton"> 

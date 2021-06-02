@@ -2,7 +2,11 @@
 <html lang="es">
 <!-- Include Head -->
 <head>
-	<%- include('./partials/headerLogged')%>
+	<% if(! logueado) { %>
+	<%- include('./partials/headerNotLogged')%>
+	<% } else { %>
+		<%- include('./partials/headerLogged')%>
+		<% } %>
 </head>
 <body>
 

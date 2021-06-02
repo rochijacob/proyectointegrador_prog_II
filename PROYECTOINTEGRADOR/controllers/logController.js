@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 // const bcrypt = require('bcryptjs');
 
 module.exports = {
-    /*
+    
     headerPartial: (req, res) => { // Se va a tener q unificar TODO en un partial que renderize??
         // Le estamos diciendo al controlador si el usuario ya existe, si existe, saludarlo c nombre
         if (req.session.usuario){
@@ -14,7 +14,7 @@ module.exports = {
         } else {
             res.render('index', {usuario: "anonimo"});
         }
-    },*/
+    },
     registerForm: (req, res) => {
         res.render('register');
     },
@@ -30,7 +30,14 @@ module.exports = {
             fecha_nacimiento: req.body.fechanacimiento,
             pass: passEncriptada
         }).then(usuario => { 
-            res.redirect('/profile'); //redirect tiene que ir al profile del usuario
+            req.session.user={
+                id: usuario.id,
+                nombre: usuario.nombre_apellido 
+            }
+            res.redirect('/');
+            
+
+             //redirect tiene que ir al profile del usuario
         })
         .catch(err => {
             // print the error details
@@ -47,16 +54,17 @@ module.exports = {
         // Filtramos el usuario a traves de un campo que sea UNICO en la base de datos
         const filtro = {
             where: { //objeto literal
-                nombre_apellido: req.body.nombre
+                nombre_apellido: req.body.name
             }
         }
-
         // Buscamos el usuario que deberia ser unico
         db.Usuario.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
             if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
-                req.session.usuario = usuario.name;
+                req.session.user = usuario.name;
+
+                //PONER EL ELSE --> CONTRASEÑA INCORRECTA!!!!
                 //guardo lo que nescesito en la sesion
 
                 // En caso de que haya seleccionado recodarme, guardamos una cookie (check)

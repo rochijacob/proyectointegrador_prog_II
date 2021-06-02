@@ -34,10 +34,10 @@ router.get('/profileEdit', homeController.profileEdit);
 router.get('/register', logController.registerForm);
 router.post('/register', logController.registerCreateUser); //toma los datos del formulario y los usa para crear el usuario en la base de datos
 
-// router.get('/login', logController.loginForm);
-// router.post('/login', logController.loginValidate);
+router.get('/login', logController.loginForm);
+router.post('/login', logController.loginValidate);
 
-// router.get('/logout', logController.logout);
+router.post('/logout', logController.logout);
 
 
 module.exports = router;

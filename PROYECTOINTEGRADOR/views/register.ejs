@@ -3,8 +3,11 @@
 <!-- Include Head -->
 
 <head>
-	<%- include('./partials/headerNotLogged')%>
-</head>
+	<% if(! logueado) { %>
+		<%- include('./partials/headerNotLogged')%>
+		<% } else { %>
+			<%- include('./partials/headerLogged')%>
+			<% } %></head>
 
 <body>
 	<!-- Novedades -->

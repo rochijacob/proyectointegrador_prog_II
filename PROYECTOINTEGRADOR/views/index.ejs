@@ -2,10 +2,13 @@
 <html lang="es">
 <!-- Include Head -->
 <head>
+	<% if(! logueado) { %>
 	<%- include('./partials/headerNotLogged')%>
+	<% } else { %>
+		<%- include('./partials/headerLogged')%>
+		<% } %>
 </head>
 <body>
-	
 	<!-- Banner -->
 	<div class="banner">
 		<img src="images/banner.jpg" alt="Banner de ofertas">

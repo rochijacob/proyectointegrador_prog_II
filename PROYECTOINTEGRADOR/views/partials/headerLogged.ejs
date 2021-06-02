@@ -54,14 +54,13 @@
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="/profile/">
-							Valentina Drechsler<i class="fas fa-user"></i>
+					<li><a  href="/profile/<%= usuario.id %>"> 
+						<%= usuario.nombre %> <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<form action="" method="post">
-							<a href="/login/">Cerrar sesión <i class="fas fa-sign-in-alt"></i></a>
-								
+						<form action="/logout/" method="post">
+							<button>Cerrar sesión <i class="fas fa-sign-in-alt"></i></button>
 						</form>
 					</li>
 					<!-- Solo deslogueado <li>
