@@ -18,6 +18,7 @@ router.get('/product/:id', productController.detalle);
 router.post('/borrar', homeController.borrar);
 
 router.get('/profile', homeController.profile);
+router.get('/profile/:id', logController.detalle);
 
 // router.get('/headerLogueado', homeController.headerLogueado);
 

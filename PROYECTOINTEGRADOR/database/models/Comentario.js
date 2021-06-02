@@ -8,9 +8,6 @@ module.exports = (sequelize, dataTypes) => {
         texto: {
             type: dataTypes.TEXT
         },
-        fecha_creacion: {
-            type: dataTypes.DATEONLY
-        },
     }, //configuracion
     {
         tableName: 'comentarios',

@@ -30,6 +30,8 @@ module.exports = {
             fecha_nacimiento: req.body.fechanacimiento,
             pass: passEncriptada
         }).then(usuario => { 
+            // ¿Que hace esto? ¿Que valores capta? ¿Y donde los veo? ¿Para que me sirve ?
+            
             req.session.user={
                 id: usuario.id,
                 nombre: usuario.nombre_apellido 
@@ -44,6 +46,13 @@ module.exports = {
             console.log(err);
         });
 
+    },
+    detalle: (req, res) => {
+        db.Usuarios.findByPk(req.params.id).then(resultado => {
+            res.render('profile', {
+                lista: resultado
+            });
+        });
     },
 
     loginForm: (req, res) => {

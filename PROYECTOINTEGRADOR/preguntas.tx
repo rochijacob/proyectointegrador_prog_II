@@ -1,0 +1,6 @@
+Como nos conviene hacer el perfil /profile/:id (findbyPk) o si hacemos solo /profile/ y usamos usuario para traer los valores
+Cookies
+en profile edit no funciona el header
+
+
+hacer lo mismo que se hizo para profile /profile/:id pero para editar perfil 
