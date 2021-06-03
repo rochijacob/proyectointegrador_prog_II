@@ -54,7 +54,13 @@ module.exports = {
             });
         });
     },
-
+    detalleProfile: (req, res) => {
+        db.Usuarios.findByPk(req.params.id).then(resultado => {
+            res.render('profileEdit', {
+                lista: resultado
+            });
+        });
+    },
     loginForm: (req, res) => {
         res.render('login');
     },

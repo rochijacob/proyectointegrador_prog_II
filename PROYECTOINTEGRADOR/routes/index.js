@@ -29,7 +29,7 @@ router.get('/productAdd', homeController.productAdd);
 router.post('/productAdd', homeController.agregarProducto);
 
 router.get('/profileEdit', homeController.profileEdit);
-
+router.get('/profileEdit/:id', logController.detalleProfile);
 //necesito dos metodos. 
 
 router.get('/register', logController.registerForm);
