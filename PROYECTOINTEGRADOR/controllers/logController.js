@@ -69,15 +69,19 @@ module.exports = {
         // Filtramos el usuario a traves de un campo que sea UNICO en la base de datos
         const filtro = {
             where: { //objeto literal
-                nombre_apellido: req.body.name
+                usuario: req.body.name
             }
         }
+        console.log("Hola")
         // Buscamos el usuario que deberia ser unico
-        db.Usuario.findOne(filtro).then(usuario => {
+        db.Usuarios.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
+            console.log("Hola")
             if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
                 req.session.user = usuario.name;
+                console.log("Hola2")
+                console.log(req.session.user)
 
                 //PONER EL ELSE --> CONTRASEÑA INCORRECTA!!!!
                 //guardo lo que nescesito en la sesion

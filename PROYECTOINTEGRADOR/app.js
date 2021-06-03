@@ -45,9 +45,9 @@ app.use(session( { //ejecutacion de la funcion session(), recibe un objeto liter
 const db = require('./database/models');
 
 app.use(function(req, res, next) {
-  if(req.cookies.userId && !req.session.usuario) {
+  if(req.cookies.userId && !req.session.user) {
     db.Usuario.findByPk(req.cookies.userId).then(resultado => {
-      req.session.usuario = resultado.name;
+      req.session.user = resultado.name;
       return next();
     });
   } else {
@@ -57,7 +57,9 @@ app.use(function(req, res, next) {
 
 // Cargamos variables en locals, para que puedan ser usadas en todas las vistas (por ej, logueado)
 
+
 app.use(function(req, res, next) {
+  console.log(req.session.user)
   if(req.session.user){ //me permite guardar variables de la sesion --> las busco con <%= locals.logueado %>. Genero variables disponibles a todas las vistas, (=/= las rutas que me definian variables para cada vista)
     res.locals = { // se puede poner lo que queramos y despues se puede usar en la vista.es una variable disponible en todas las vistas. 
       logueado: true,
