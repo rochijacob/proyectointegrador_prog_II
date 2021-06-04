@@ -37,7 +37,7 @@ module.exports = {
                 nombre: usuario.nombre_apellido, 
                 usuario: usuario.usuario
             }
-            res.redirect('/');
+            res.redirect('../profile/' + usuario.id);
             
 
              //redirect tiene que ir al profile del usuario
@@ -68,9 +68,11 @@ module.exports = {
             console.log(usuario.pass)
             if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
                 console.log(usuario.usuario)
-                req.session.usuario = usuario.usuario;
-                req.session.userId = usuario.id;
-                req.session.usuario = usuario.nombre_apellido
+                req.session.usuario = {
+                    id: usuario.id,
+                    nombre: usuario.nombre_apellido, 
+                    usuario: usuario.usuario
+                }
                 console.log("Hola2")
 
                 console.log(req.session.usuario)
