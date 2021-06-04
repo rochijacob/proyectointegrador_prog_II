@@ -64,8 +64,13 @@ module.exports = {
         db.Usuarios.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
+            console.log(req.body.pass)  
+            console.log(usuario.pass)
             if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
-                req.session.usuario = usuario.name;
+                console.log(usuario.usuario)
+                req.session.usuario = usuario.usuario;
+                req.session.userId = usuario.id;
+                req.session.usuario = usuario.nombre_apellido
                 console.log("Hola2")
 
                 console.log(req.session.usuario)
