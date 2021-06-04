@@ -4,6 +4,7 @@ let homeController = require ('../controllers/homeController');
 let searchController = require ('../controllers/searchController');
 let productController = require ('../controllers/productController');
 const logController = require('../controllers/logController');
+let usuarioController = require('../controllers/usuarioController')
 const { Router } = require('express');
 // const logController = require('../controllers/logController');
 
@@ -18,7 +19,7 @@ router.get('/product/:id', productController.detalle);
 router.post('/borrar', homeController.borrar);
 
 router.get('/profile', homeController.profile);
-router.get('/profile/:id', logController.detalle);
+router.get('/profile/:id', usuarioController.detalle); //perfil segun id
 
 // router.get('/headerLogueado', homeController.headerLogueado);
 
@@ -29,7 +30,7 @@ router.get('/productAdd', homeController.productAdd);
 router.post('/productAdd', homeController.agregarProducto);
 
 router.get('/profileEdit', homeController.profileEdit);
-router.get('/profileEdit/:id', logController.detalleProfile);
+router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id
 //necesito dos metodos. 
 
 router.get('/register', logController.registerForm);

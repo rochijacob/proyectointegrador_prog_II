@@ -21,7 +21,7 @@ module.exports = {
 
     registerCreateUser: (req, res) => {
         // Encriptamos la contraseña antes de mandar a la base de datos
-        let passEncriptada = bcrypt.hashSync(req.body.password); //pass tiene que coincidir con el formulario
+        let passEncriptada = bcrypt.hashSync(req.body.pass); //pass tiene que coincidir con el formulario
         
         db.Usuarios.create({
             nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
@@ -32,9 +32,10 @@ module.exports = {
         }).then(usuario => { 
             // ¿Que hace esto? ¿Que valores capta? ¿Y donde los veo? ¿Para que me sirve ?
             
-            req.session.user={
+            req.session.usuario={
                 id: usuario.id,
-                nombre: usuario.nombre_apellido 
+                nombre: usuario.nombre_apellido, 
+                usuario: usuario.usuario
             }
             res.redirect('/');
             
@@ -46,20 +47,6 @@ module.exports = {
             console.log(err);
         });
 
-    },
-    detalle: (req, res) => {
-        db.Usuarios.findByPk(req.params.id).then(resultado => {
-            res.render('profile', {
-                lista: resultado
-            });
-        });
-    },
-    detalleProfile: (req, res) => {
-        db.Usuarios.findByPk(req.params.id).then(resultado => {
-            res.render('profileEdit', {
-                lista: resultado
-            });
-        });
     },
     loginForm: (req, res) => {
         res.render('login');
@@ -77,11 +64,11 @@ module.exports = {
         db.Usuarios.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
-            console.log("Hola")
             if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
-                req.session.user = usuario.name;
+                req.session.usuario = usuario.name;
                 console.log("Hola2")
-                console.log(req.session.user)
+
+                console.log(req.session.usuario)
 
                 //PONER EL ELSE --> CONTRASEÑA INCORRECTA!!!!
                 //guardo lo que nescesito en la sesion

@@ -45,9 +45,9 @@ app.use(session( { //ejecutacion de la funcion session(), recibe un objeto liter
 const db = require('./database/models');
 
 app.use(function(req, res, next) {
-  if(req.cookies.userId && !req.session.user) {
-    db.Usuario.findByPk(req.cookies.userId).then(resultado => {
-      req.session.user = resultado.name;
+  if(req.cookies.userId && !req.session.usuario) {
+    db.Usuarios.findByPk(req.cookies.userId).then(resultado => {
+      req.session.usuario = resultado.name;
       return next();
     });
   } else {
@@ -59,11 +59,11 @@ app.use(function(req, res, next) {
 
 
 app.use(function(req, res, next) {
-  console.log(req.session.user)
-  if(req.session.user){ //me permite guardar variables de la sesion --> las busco con <%= locals.logueado %>. Genero variables disponibles a todas las vistas, (=/= las rutas que me definian variables para cada vista)
+  console.log(req.session.usuario)
+  if(req.session.usuario){ //me permite guardar variables de la sesion --> las busco con <%= locals.logueado %>. Genero variables disponibles a todas las vistas, (=/= las rutas que me definian variables para cada vista)
     res.locals = { // se puede poner lo que queramos y despues se puede usar en la vista.es una variable disponible en todas las vistas. 
       logueado: true,
-      usuario: req.session.user
+      usuario: req.session.usuario
     }
   } else {
     res.locals = {
@@ -71,7 +71,7 @@ app.use(function(req, res, next) {
     }
   }
 
-	return next();
+	return next(); //se usa pq esta antes de los routers
 });
 
 
