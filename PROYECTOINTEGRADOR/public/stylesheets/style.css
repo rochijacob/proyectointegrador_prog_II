@@ -190,3 +190,19 @@ a:hover {
 .conocer_mas {
   margin: 10px 20%;
 }
+
+#not_found {
+  margin: 0 auto;
+  background-color: rgba(255, 115, 115, 0.247);
+  border: 2px solid rgba(255, 0, 0, 0.247);
+  border-radius: 10px;
+  text-align: center;
+}
+
+#not_found > p {
+  text-align: center;
+  padding: 20px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Titillium Web', sans-serif;
+}

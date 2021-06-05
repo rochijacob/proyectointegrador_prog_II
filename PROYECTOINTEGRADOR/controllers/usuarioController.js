@@ -4,7 +4,15 @@ const Op = db.Sequelize.Op;
 
 module.exports = {
     detalle: (req, res) => {
-        db.Usuarios.findByPk(req.params.id).then(resultado => {
+        const filtro = { //los campos que quiero que traiga
+            include: [
+                {association: 'producto'},
+                {association: "comentarios"}
+            ]
+        }
+        db.Usuarios.findByPk(req.params.id, filtro).then(resultado => {
+            console.log(resultado.toJSON())
+
             res.render('profile', {
                 lista: resultado
             });

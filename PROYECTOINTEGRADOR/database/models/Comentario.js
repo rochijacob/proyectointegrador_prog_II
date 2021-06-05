@@ -11,9 +11,19 @@ module.exports = (sequelize, dataTypes) => {
     }, //configuracion
     {
         tableName: 'comentarios',
-        timestamps: false,
     }
     );
+    //Asocio al comentario con un producto y con un usuario
+    Comentarios.associate = (db) => {
+        Comentarios.belongsTo(db.Usuarios, {
+            as: "usuario",
+            foreignKey: "usuario_id",
+        });
+        Comentarios.belongsTo(db.Productos, {
+            as: "producto",
+            foreignKey: "product_id",
+        });
+    }
 
     return Comentarios;  
 }

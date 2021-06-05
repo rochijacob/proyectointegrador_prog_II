@@ -17,8 +17,18 @@ module.exports = (sequelize, dataTypes) => {
     },  //configuracion
     {
         tableName: 'producto',
-        timestamps: false,
     });
+
+    Producto.associate = (db) => { //db lo pasa el sequelize cli, en el index.js (el require esta ahi y me llega como parametro)
+        Producto.belongsTo(db.Usuarios, { //relacion uno a muchos 1 usuario, muchos productos
+            as: "usuario", //nombre de la relacion
+            foreignKey: "usuario_id" //nombre del campo con la clave foranea
+        }); 
+        Producto.hasMany(db.Comentarios, {
+            as: "comentarios",
+            foreignKey: "product_id",
+        });
+    };
 
     return Producto;
 }

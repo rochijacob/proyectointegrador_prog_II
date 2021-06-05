@@ -19,17 +19,16 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"> <%= lista.nombre_apellido %>
-						<a href="/profileEdit/<%=lista.id%>">
-							<i class="fas fa-cog"></i>
-						</a>
+						<% if (logueado) { %>
+							<a href="/profileEdit/<%=lista.id%>">
+								<i class="fas fa-cog"></i>
+							</a>
+						<% } %>
 					</h1>
-					<button class="btn mt-3 ml-4 follow" id="seguir">SEGUIR</button>
-					<button class="btn mt-3 ml-4 follow" id="deseguir">DESSEGUIR</button>
 				</div>
 				<div>
 					<ul class="">
 						<li>8 productos</li>
-						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
 				</div>
@@ -170,17 +169,5 @@
 	<!-- /footer -->
 </body>	
 <script>
-	document.getElementById("seguir").addEventListener("click", function(){
-    let deseguir = document.querySelector("#deseguir");
-    deseguir.style = "display: block;";
-	let seguir = document.querySelector("#seguir");
-	seguir.style = "display: none;"
-	})
-	document.getElementById("deseguir").addEventListener("click", function(){
-		let deseguir = document.querySelector("#deseguir");
-		deseguir.style = "display:none;"
-		let seguir = document.querySelector("#seguir");
-		seguir.style = "display: block;"
-	})
 </script>
 </html>

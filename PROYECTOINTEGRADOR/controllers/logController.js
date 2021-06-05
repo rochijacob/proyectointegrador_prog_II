@@ -33,10 +33,11 @@ module.exports = {
             // ¿Que hace esto? ¿Que valores capta? ¿Y donde los veo? ¿Para que me sirve ?
             
             req.session.usuario={
-                id: usuario.id,
                 nombre: usuario.nombre_apellido, 
                 usuario: usuario.usuario
             }
+
+            req.session.userId = usuario.id;
             res.redirect('../profile/' + usuario.id);
             
 
@@ -69,13 +70,16 @@ module.exports = {
             if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
                 console.log(usuario.usuario)
                 req.session.usuario = {
-                    id: usuario.id,
                     nombre: usuario.nombre_apellido, 
                     usuario: usuario.usuario
                 }
+
+                req.session.userId = usuario.id;
                 console.log("Hola2")
 
                 console.log(req.session.usuario)
+
+                res.redirect('../profile/' + usuario.id);
 
                 //PONER EL ELSE --> CONTRASEÑA INCORRECTA!!!!
                 //guardo lo que nescesito en la sesion
