@@ -27,7 +27,7 @@ router.get('/profile/:id', usuarioController.detalle); //perfil segun id
 router.get('/buscar', searchController.search); 
 
 // router.get('/productAdd', homeController.productAdd);
-router.get('/productAdd', productController.updateRender);
+router.get('/productAdd/:id', productController.updateRender);
 // router.post('/productAdd', productController.update);
 router.post('/productAdd', homeController.agregarProducto);
 
