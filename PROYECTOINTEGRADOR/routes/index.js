@@ -26,8 +26,12 @@ router.get('/profile/:id', usuarioController.detalle); //perfil segun id
 //router.get('/searchResults', homeController.searchResults);
 router.get('/buscar', searchController.search); 
 
-router.get('/productAdd', homeController.productAdd);
+// router.get('/productAdd', homeController.productAdd);
+router.get('/productAdd', productController.updateRender);
+// router.post('/productAdd', productController.update);
 router.post('/productAdd', homeController.agregarProducto);
+
+
 
 router.get('/profileEdit', homeController.profileEdit);
 router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id

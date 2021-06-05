@@ -16,4 +16,13 @@ module.exports = {
             });
         });
     },
+
+    updateRender: (req, res)=> {
+        
+        db.Productos.findByPk(req.params.id).then(resultado => {
+            res.render('productAdd', {
+                lista: resultado
+            });
+        });
+    },
 }
