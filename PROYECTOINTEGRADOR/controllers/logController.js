@@ -16,13 +16,44 @@ module.exports = {
         }
     },
     registerForm: (req, res) => {
-        res.render('register');
+        let error = "";
+        res.render('register', {error: error});
     },
 
     registerCreateUser: (req, res) => {
         // Encriptamos la contraseña antes de mandar a la base de datos
         let passEncriptada = bcrypt.hashSync(req.body.pass); //pass tiene que coincidir con el formulario
-        
+
+        db.Usuarios.findOne({
+            where: {
+                email: req.body.email
+            }
+        }). then(function(usuarios) {
+            if(usuarios) {
+                let error = "Este mail ya esta en uso"
+                res.render("register", {error:error})
+            } else {
+                let createUser = {
+                    nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
+                    usuario: req.body.usuario,
+                    email: req.body.email,
+                    fecha_nacimiento: req.body.fechanacimiento,
+                    pass: passEncriptada
+                }
+            db.Usuarios.create(createUser).then(usuario => {
+                req.session.usuario={
+                    nombre: usuario.nombre_apellido, 
+                    usuario: usuario.usuario
+                }
+    
+                req.session.userId = usuario.id;
+                res.redirect('../profile/' + usuario.id);
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+        })
+        /*
         db.Usuarios.create({
             nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
             usuario: req.body.usuario,
@@ -31,7 +62,7 @@ module.exports = {
             pass: passEncriptada
         }).then(usuario => { 
             // ¿Que hace esto? ¿Que valores capta? ¿Y donde los veo? ¿Para que me sirve ?
-            
+            console.log(usuario)
             req.session.usuario={
                 nombre: usuario.nombre_apellido, 
                 usuario: usuario.usuario
@@ -46,7 +77,7 @@ module.exports = {
         .catch(err => {
             // print the error details
             console.log(err);
-        });
+        }); */
 
     },
     loginForm: (req, res) => {

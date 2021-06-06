@@ -34,6 +34,11 @@
 						  </svg>
 					</span>
 					<input type="email" class="form-control" name="email" placeholder="e-mail" aria-label="email" aria-describedby="basic-addon1" value="Vdrechsler@udesa.edu.ar" required>
+					<% if(error != ""){ %>
+						<p> <%=error%></p>
+					<%}%>
+			
+
 				</div>
 				<div class="input-group mb-3 col-md-6 formulario">
 					<span class="input-group-text" id="basic-addon1">

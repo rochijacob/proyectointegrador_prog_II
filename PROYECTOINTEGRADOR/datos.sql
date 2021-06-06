@@ -28,7 +28,6 @@ CREATE TABLE producto (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
-
 SELECT * FROM producto;
 
 CREATE TABLE comentarios (
