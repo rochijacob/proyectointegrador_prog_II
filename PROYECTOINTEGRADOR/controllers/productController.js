@@ -1,4 +1,5 @@
 let db = require('../database/models');
+const Producto = require('../database/models/Producto');
 let Op = db.Sequelize.Op;
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
     updateRender: (req, res)=> {
         
         db.Productos.findByPk(req.params.id).then(resultado => {
-            res.render('productAdd', {
+            res.render('productModify', {
                 lista: resultado
             });
         });
@@ -35,7 +36,7 @@ module.exports = {
                 id: req.body.id
             }
         }).then(() => {
-            res.redirect('./product/' + lista.id);
+            res.redirect('/');
         });
     },
 
