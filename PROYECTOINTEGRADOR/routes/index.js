@@ -28,7 +28,7 @@ router.get('/buscar', searchController.search);
 
 // router.get('/productAdd', homeController.productAdd);
 router.get('/productAdd/:id', productController.updateRender);
-// router.post('/productAdd', productController.update);
+router.post('/productAdd', productController.updateProducto);
 router.post('/productAdd', homeController.agregarProducto);
 
 

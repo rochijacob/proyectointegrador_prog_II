@@ -25,4 +25,21 @@ module.exports = {
             });
         });
     },
+    updateProducto: (req, res) => {
+        db.Productos.update({
+            imagen: req.body.imagen,
+            nombre_producto: req.body.nombre,
+            descripcion: req.body.descripcion
+        },{
+            where: {
+                id: req.body.id
+            }
+        }).then(() => {
+            res.redirect('./product/' + lista.id);
+        });
+    },
+
+    
+
+
 }

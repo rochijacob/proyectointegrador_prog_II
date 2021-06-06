@@ -17,7 +17,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
-			<form  method="POST" class="container_form">
+			<form  action="productAdd" method="POST" class="container_form">
 				<div class="input-group mb-3 col-md-6 formulario">
 					<span class="input-group-text" id="basic-addon1">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -25,7 +25,7 @@
 							<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 						  </svg>
 					</span>
-					<input name="imagen" type="text" class="form-control" placeholder="Imagen(url)" aria-label="Usuario" aria-describedby="basic-addon1" required>
+					<input name="imagen" type="text" class="form-control" placeholder="Imagen(url)"  aria-label="Usuario" aria-describedby="basic-addon1" required>
 				</div>
 				<div class="input-group mb-3 col-md-6 formulario">
 					<span class="input-group-text" id="basic-addon1">
@@ -33,7 +33,7 @@
 							<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 						  </svg>
 					</span>
-					<input name="nombre" type="text" class="form-control" placeholder="Nombre del producto" aria-label="Nombre del Producto" aria-describedby="basic-addon1" required>
+					<input name="nombre" type="text" class="form-control" placeholder="Nombre del producto" aria-label="Nombre del Producto" aria-describedby="basic-addon1"  required>
 				</div>
 				<div class="input-group mb-3 col-md-6 formulario">
 					<span class="input-group-text" id="basic-addon1">
@@ -44,9 +44,18 @@
 					<input name="descripcion" type="text" class="form-control" placeholder="Descripción" aria-label="descripcion" aria-describedby="basic-addon1" required>
 				</div>
 				
-				<div class="boton"> 
-					 <a href="/profile/"><input class="btn btn-primary" type="submit" value="Submit"></a>
-			   </div>
+				<p class="product-detail-description">
+					<a href="/product/<%= lista.id %>">Submit</a>
+				</p>
+
+				<!-- <form action="/productAdd" method="POST">
+					<input type="hidden" name="id" value="<%= lista.id %>">
+					<input type="submit" value="Submit">
+				  </form> -->
+
+				<!-- <button class="boton"> 
+					 <a href="product/<%= lista.id %>/"><input class="btn btn-primary" type="submit" value="Submit"></a>
+				</button> -->
 			</form>
 			<!-- Show the "ultimos" products -->
 			<!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
