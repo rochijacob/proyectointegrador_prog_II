@@ -50,6 +50,14 @@ let homeController = {
         }).catch(error => {
             console.log(error)
         })
+    },
+    todosProductos: (req,res) =>{
+    db.Productos.findAll().then(resultado => {
+            console.log(resultado)
+            res.render('todosProductos', {
+                lista: resultado
+            });
+        });
     }
 }
 

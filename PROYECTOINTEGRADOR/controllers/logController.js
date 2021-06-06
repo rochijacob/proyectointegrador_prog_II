@@ -29,7 +29,8 @@ module.exports = {
                 email: req.body.email
             }
         }). then(function(usuarios) {
-            if(usuarios) {
+            console.log(usuarios)
+            if(usuarios || req.body.pass.value.lenght < 3)  {
                 let error = "Este mail ya esta en uso"
                 res.render("register", {error:error})
             } else {

@@ -16,6 +16,7 @@ router.get('/register', homeController.register); // esto crea el siguiente link
 router.get('/login', homeController.login);
 
 router.get('/product/:id', productController.detalle);
+router.post('/comentar', productController.comentar);
 router.post('/borrar', homeController.borrar);
 
 router.get('/profile', homeController.profile);
@@ -30,8 +31,7 @@ router.get('/buscar', searchController.search);
 router.get('/productModify/:id', productController.updateRender);
 router.post('/productModify/:id', productController.updateProducto);
 router.post('/productAdd', homeController.agregarProducto);
-
-
+router.get('/todosProductos', homeController.todosProductos);
 
 router.get('/profileEdit', homeController.profileEdit);
 router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id

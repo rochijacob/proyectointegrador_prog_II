@@ -39,6 +39,13 @@ module.exports = {
             res.redirect('/');
         });
     },
+    comentar: (req,res) => {
+        db.Comentarios.create({
+            texto: require.body.text
+        })
+    }
+     
+
 
     
 

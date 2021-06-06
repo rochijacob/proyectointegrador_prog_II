@@ -9,19 +9,10 @@
 		<% } %>
 </head>
 <body>
-	<!-- Banner -->
-	<div class="banner">
-		<img src="images/banner.jpg" alt="Banner de ofertas">
-	</div>
-	<!-- /Banner -->
 	<h1>Todos productos</h1>
 	<!-- Novedades -->
 	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Novedades</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
+		<% lista.forEach(element => {%>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/product/">
@@ -36,119 +27,9 @@
 					</a>
 				</section>
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/">
-						<figure class="product-box_image">
-							<img src="/images/products/compas.jpg" alt="compas">
-						</figure>
-						<article class="product-box_data">
-							<h2>Compás</h2>
-							<p>Para que obtengas el circulo perfecto</p>
-							<p>Comentarios: 30</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/">
-						<figure class="product-box_image">
-							<img src="images/products/goma.jpg" alt="goma de borrar">
-						</figure>
-						<article class="product-box_data">
-							<h2>Goma de borrar</h2>
-							<p>Para borrar tu pasado</p>
-							<p>Comentarios: 20</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/1">
-						<figure class="product-box_image">
-							<img src="images/products/marcadores.png" alt="marcadores">
-						</figure>
-						<article class="product-box_data">
-							<h2>Marcadores</h2>
-							<p>De todos los colores que te puedas imaginar</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-		</div>
+		<% }) %>
 	</div>
-	<!-- /Novedades -->
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/">
-						<figure class="product-box_image">
-							<img src="images/products/compas.jpg" alt="compas">
-						</figure>
-						<article class="product-box_data">
-							<h2>Compás</h2>
-							<p>Para que obtengas el circulo perfecto</p>
-							<p>Comentarios: 30</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/">
-						<figure class="product-box_image">
-							<img src="images/products/goma.jpg" alt="goma de borrar">
-						</figure>
-						<article class="product-box_data">
-							<h2>Goma de borrar</h2>
-							<p>Para borrar tu pasado</p>
-							<p>Comentarios: 20</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/">
-						<figure class="product-box_image">
-							<img src="images/products/lapiz.jpg" alt="lapiz">
-						</figure>
-						<article class="product-box_data">
-							<h2>Lápiz</h2>
-							<p>Lapiz utilizado por artistas plasticos profesionales y dibujantes.</p>
-							<p>Comentarios: 15</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/">
-						<figure class="product-box_image">
-							<img src="images/products/marcadores.png" alt="cafetera moulinex">
-						</figure>
-						<article class="product-box_data">
-							<h2>Marcadores</h2>
-							<p>De todos los colores que te puedas imaginar</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-		</div>
-	</div>
-	<!-- /Más comentados -->
-
-
+			
 	<!-- footer -->
 	<%- include('./partials/footer')%>
 	<!-- /footer -->
