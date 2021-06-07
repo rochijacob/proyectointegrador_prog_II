@@ -46,14 +46,20 @@ const db = require('./database/models');
 
 app.use(function(req, res, next) {
   if(req.cookies.userId && !req.session.usuario) {
-    db.Usuarios.findByPk(req.cookies.userId).then(resultado => {
-      req.session.usuario = resultado.name;
+    db.Usuarios.findByPk(req.cookies.userId).then(usuario => {
+      req.session.usuario = {
+        nombre: usuario.nombre_apellido, 
+        usuario: usuario.usuario
+    }
+
+    req.session.userId = usuario.id;
       return next();
     });
   } else {
   	return next();
   }}
 );
+
 
 // Cargamos variables en locals, para que puedan ser usadas en todas las vistas (por ej, logueado)
 

@@ -92,7 +92,6 @@ module.exports = {
                 usuario: req.body.name
             }
         }
-        console.log("Hola")
         // Buscamos el usuario que deberia ser unico
         db.Usuarios.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
@@ -107,19 +106,16 @@ module.exports = {
                 }
 
                 req.session.userId = usuario.id;
-                console.log("Hola2")
-
-                console.log(req.session.usuario)
-
-                res.redirect('../profile/' + usuario.id);
+                
 
                 //PONER EL ELSE --> CONTRASEÑA INCORRECTA!!!!
                 //guardo lo que nescesito en la sesion
-
+               
                 // En caso de que haya seleccionado recodarme, guardamos una cookie (check)
                 if(req.body.remember){
                     res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 }); //guarda la cookie, que se define del lado del cliente, en este caso mi objeto seria 'userId' (el nombre de la cookie)
                 }
+                res.redirect('../profile/' + usuario.id);
             }
             res.redirect('/'); //inicio de sesion y que diga, bienvenido ....
         });
