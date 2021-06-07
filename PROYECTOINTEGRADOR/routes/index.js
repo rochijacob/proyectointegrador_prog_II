@@ -11,7 +11,6 @@ const { Router } = require('express');
 /* GET home page. */
 router.get('/', homeController.index);
 
-router.get('/register', homeController.register); // esto crea el siguiente link "/register/"
 
 router.get('/login', homeController.login);
 

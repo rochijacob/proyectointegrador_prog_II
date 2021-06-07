@@ -15,3 +15,5 @@ Falta:
 - Buscar producto: solo nombre y usuario que cargo
 - perfil del usuario: falta fotos y update
 - Punto 7 - Home page
+
+poner a todos los .then un catch

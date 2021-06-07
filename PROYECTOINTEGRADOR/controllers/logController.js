@@ -16,12 +16,17 @@ module.exports = {
         }
     },
     registerForm: (req, res) => {
-        let error = "";
+        let error = null;
+        console.log("error is" + error)
         res.render('register', {error: error});
     },
 
     registerCreateUser: (req, res) => {
         // Encriptamos la contraseña antes de mandar a la base de datos
+        if(req.body.pass.lenght < 3) {
+            let error = "Debe tener mas de 3 caracteres"
+            res.render("register", {error:error});
+        } else {
         let passEncriptada = bcrypt.hashSync(req.body.pass); //pass tiene que coincidir con el formulario
 
         db.Usuarios.findOne({
@@ -32,6 +37,7 @@ module.exports = {
             console.log(usuarios)
             if(usuarios)  {
                 let error = "Este mail ya esta en uso"
+                console.log(error)
                 res.render("register", {error:error})
             } else {
                 let createUser = {
@@ -54,6 +60,7 @@ module.exports = {
             })
         }
         })
+    }
         /*
         db.Usuarios.create({
             nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario

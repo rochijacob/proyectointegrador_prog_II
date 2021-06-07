@@ -35,8 +35,8 @@ module.exports = {
             where: {
                 id: req.body.id
             }
-        }).then(() => {
-            res.redirect('/');
+        }).then((productoId) => {
+            res.redirect('/product/' + productoId);
         });
     },
     comentar: (req,res) => {
@@ -44,6 +44,7 @@ module.exports = {
             texto: require.body.text
         })
     }
+
      
 
 
