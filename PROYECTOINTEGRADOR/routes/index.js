@@ -18,7 +18,7 @@ router.get('/product/:id', productController.detalle);
 router.post('/comentar', productController.comentar);
 router.post('/borrar', homeController.borrar);
 
-router.get('/profile', homeController.profile);
+// router.get('/profile', homeController.profile);
 router.get('/profile/:id', usuarioController.detalle); //perfil segun id
 
 // router.get('/headerLogueado', homeController.headerLogueado);
@@ -35,6 +35,8 @@ router.get('/todosProductos', homeController.todosProductos);
 router.get('/profileEdit', homeController.profileEdit);
 router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id
 //necesito dos metodos. 
+router.post('/profileEdit/:id', usuarioController.profileEdit);
+
 
 router.get('/register', logController.registerForm);
 router.post('/register', logController.registerCreateUser); //toma los datos del formulario y los usa para crear el usuario en la base de datos

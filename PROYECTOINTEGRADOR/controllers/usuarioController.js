@@ -25,4 +25,17 @@ module.exports = {
             });
         });
     },
+    profileEdit: (req, res) =>{
+        db.Usuarios.update({
+            nombre_apellido: req.body.nombre,
+            email: req.body.email,
+            usuario: req.body.usuario
+        },{
+            where: {
+                id: req.body.id
+            }
+        }).then((profileId) => {
+            res.redirect('/profile/' + profileId);
+        });
+    }
 }
