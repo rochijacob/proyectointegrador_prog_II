@@ -30,7 +30,8 @@ let homeController = {
         db.Productos.create({
             imagen: req.body.imagen,
             nombre_producto: req.body.nombre,
-            descripcion: req.body.descripcion
+            descripcion: req.body.descripcion,
+            usuario_id: req.session.userId
         }).then(productoCreado => {
             res.redirect('/product/' + productoCreado.id);
         }).catch(error =>{

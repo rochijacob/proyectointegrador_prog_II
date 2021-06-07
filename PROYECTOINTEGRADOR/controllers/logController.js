@@ -30,7 +30,7 @@ module.exports = {
             }
         }). then(function(usuarios) {
             console.log(usuarios)
-            if(usuarios || req.body.pass.value.lenght < 3)  {
+            if(usuarios)  {
                 let error = "Este mail ya esta en uso"
                 res.render("register", {error:error})
             } else {
