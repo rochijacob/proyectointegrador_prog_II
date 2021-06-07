@@ -6,7 +6,7 @@ module.exports = {
     detalle: (req, res) => {
         const filtro = { //los campos que quiero que traiga
             include: [
-                {association: 'comentarios' }
+                {association: 'comentarios'}
             ]
         }
         db.Productos.findByPk(req.params.id, filtro).then(resultado => {
@@ -41,8 +41,12 @@ module.exports = {
     },
     comentar: (req,res) => {
         db.Comentarios.create({
-            texto: require.body.text
-        })
+            texto: req.body.text,
+            usuario_id: usuario.id,
+            product_id: req.params.id
+        }).then((resultado) => {
+            console.log(resultado);
+        });
     }
 
      

@@ -9,11 +9,14 @@ como hago que product id me lleve a el producto MODIFICADO
 
 Falta:
 
-- validacion: tema contraseña y display error
-- Falta session
 - Saludando al usuario
 - Buscar producto: solo nombre y usuario que cargo
 - perfil del usuario: falta fotos y update
 - Punto 7 - Home page
 
-poner a todos los .then un catch
+- poner a todos los .then un catch
+
+Problemas:
+- En search no aparece usuario que cargo
+- En comentarios no aparece usuario que comento 
+- Como hacer que se ejecute el comentario 

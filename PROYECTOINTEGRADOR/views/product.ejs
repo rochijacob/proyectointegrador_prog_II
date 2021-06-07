@@ -33,14 +33,16 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<!-- <article>
+						<%lista.comentarios.forEach(element => { %>						
+						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/profile/"> Valudrech </a> </strong>
-									Increibles productos!!</p>
+								<strong> <a href="/profile/<%=element.usuario_id%>"> Valudrech </a> </strong>
+									<%= element.texto%> </p>
 							</div> 
-						</article>-->
+						</article>
+					<% })%>
 
 					</section>
 					<form class="form" action="/comentar" method="POST" id="form"> <!-- METHOD POST-->
