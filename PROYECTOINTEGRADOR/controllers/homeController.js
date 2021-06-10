@@ -1,12 +1,28 @@
-const db = require("../database/models")
+const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 let homeController = {
-    index: (req, res) => {
-        res.render('index')
+    index: (req, res, next) => {
+        let productosNuevos = {
+            order: [ 
+                ['createdAt', 'DESC'],
+            ],
+            limit: 4, 
+        }
+        let productosViejos = {
+            order: [
+                ['createdAt', 'ASC'],
+            ],
+            limit: 4, 
+        }
+
+        db.Productos.findAll(productosNuevos).then(nuevos => {
+            db.Productos.findAll(productosViejos).then(viejos => {
+                res.render("index", {nuevos: nuevos, viejos: viejos})
+            }).catch(err => {console.log(err)})
+        })
     },
-    register: (req, res) => {
-        res.render('register')
-    },
+
     login: (req, res) => {
         res.render('login')
     },

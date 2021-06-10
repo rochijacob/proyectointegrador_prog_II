@@ -6,10 +6,10 @@ let productController = require ('../controllers/productController');
 const logController = require('../controllers/logController');
 let usuarioController = require('../controllers/usuarioController')
 const { Router } = require('express');
-// const logController = require('../controllers/logController');
+
 
 /* GET home page. */
-router.get('/', homeController.index);
+router.get('/', homeController.index); //render del index y trae resultados por fecha
 
 
 router.get('/login', homeController.login);
@@ -18,15 +18,13 @@ router.get('/product/:id', productController.detalle);
 router.post('/comentar', productController.comentar);
 router.post('/borrar', homeController.borrar);
 
-// router.get('/profile', homeController.profile);
+
 router.get('/profile/:id', usuarioController.detalle); //perfil segun id
 
-// router.get('/headerLogueado', homeController.headerLogueado);
 
-//router.get('/searchResults', homeController.searchResults);
+
 router.get('/buscar', searchController.search); 
 
-// router.get('/productAdd', homeController.productAdd);
 router.get('/productModify/:id', productController.updateRender);
 router.post('/productModify/:id', productController.updateProducto);
 router.post('/productAdd', homeController.agregarProducto);

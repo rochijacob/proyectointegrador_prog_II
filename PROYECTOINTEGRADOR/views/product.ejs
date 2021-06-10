@@ -27,7 +27,8 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="<%= lista.imagen %>" alt="" class="product-detail-img">
-					<p class="product-detail-fecha">Fecha de creacion: <%= lista.fecha_creacion %></p>
+					<p class="product-detail-fecha">Fecha de creacion: <%= lista.createdAt %></p>
+					<p class="product-detail-fecha">Creado por: <%= lista.usuario.nombre_apellido %></p>
 					<p class="product-detail-description">
 						<%= lista.descripcion %></p>
 				</article>
@@ -38,7 +39,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/profile/<%=element.usuario_id%>"> Valudrech </a> </strong>
+								<strong> <a href="/profile/<%=element.usuario_id%>"> <%= element.usuario.usuario %> </a> </strong>
 									<%= element.texto%> </p>
 							</div> 
 						</article>

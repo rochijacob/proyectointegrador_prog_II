@@ -15,6 +15,8 @@ CREATE TABLE usuario (
 
 SELECT * FROM usuario;
 
+ALTER TABLE usuario ADD foto_perfil TEXT;
+
 CREATE TABLE producto (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	nombre_producto VARCHAR(255),
@@ -27,6 +29,11 @@ CREATE TABLE producto (
     
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
+
+SET FOREIGN_KEY_CHECKS=0; 
+SET FOREIGN_KEY_CHECKS=1; 
+DROP TABLE producto;
+
 
 SELECT * FROM producto;
 
