@@ -21,11 +21,15 @@
 					<a href="/productModify/<%= lista.id %>">Editar</a>
 				</p>
 			<% } %>
+
+			<% if (logueado && usuarioId == lista.usuario.id)  { %>
+				<form action="/borrar" method="POST">
+					<input type="hidden" name="id" value="<%= lista.id %>">
+					<input type="submit" value="Borrar">
+				  </form>
+			<% } %>
 			
-			<form action="/borrar" method="POST">
-				<input type="hidden" name="id" value="<%= lista.id %>">
-				<input type="submit" value="Borrar">
-			  </form>
+			
 		</div>
 		<div class="product-detail">
 			<div class="row">
