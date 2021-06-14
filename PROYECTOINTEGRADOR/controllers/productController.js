@@ -54,6 +54,10 @@ module.exports = {
             }).catch(err=>{
                 console.log(err)
             })
+        }else{
+            error.message= 'Registrate para comentar!'            
+            res.locals.error=error    
+            res.redirect('/register/')
         }
     }
 

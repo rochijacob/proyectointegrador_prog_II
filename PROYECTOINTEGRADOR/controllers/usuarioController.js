@@ -19,11 +19,15 @@ module.exports = {
         });
     },
     detalleProfile: (req, res) => {
+        if(req.session.userId == req.params.id){
         db.Usuarios.findByPk(req.params.id).then(resultado => {
             res.render('profileEdit', {
                 lista: resultado
             });
         });
+    }else{
+        res.redirect('/')
+    }   
     },
     profileEdit: (req, res) =>{
         db.Usuarios.update({
