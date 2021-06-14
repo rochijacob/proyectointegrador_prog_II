@@ -24,6 +24,7 @@
 			<div class="results_info">
 				<h1 class="results_nombre_producto"><%= element.nombre_producto %> </h1> <!-- Es el lista: resultado que defini en el controlador -->
 				<p class="descripcion_producto"><%= element.descripcion %></p>
+				<p>Creado por:<a href="/profile/<%= element.usuario.id%>"><%=element.usuario.nombre_apellido%></a></p>
 				<button class="btn btn-primary conocer_mas" onclick="window.location.href='/product/<%= element.id %>'">Conocer más</button>
 			</div>
 		</div>
