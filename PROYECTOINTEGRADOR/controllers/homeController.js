@@ -15,9 +15,14 @@ let homeController = {
             ],
             limit: 4, 
         }
+        let filtro = {
+            include: [
+                {association: 'comentarios'}
+            ]
+        }
 
-        db.Productos.findAll(productosNuevos).then(nuevos => {
-            db.Productos.findAll(productosViejos).then(viejos => {
+        db.Productos.findAll(productosNuevos, filtro).then(nuevos => {
+            db.Productos.findAll(productosViejos, filtro).then(viejos => {
                 res.render("index", {nuevos: nuevos, viejos: viejos})
             }).catch(err => {console.log(err)})
         })

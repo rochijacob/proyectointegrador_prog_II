@@ -206,3 +206,25 @@ a:hover {
   font-weight: 600;
   font-family: 'Titillium Web', sans-serif;
 }
+
+.boton-by-ro {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.the_button {
+  padding: 8px 20px;
+  border-radius:5px;
+  box-shadow: 1px 4px 9px 0px #0000002b;
+  font-size: 16px;
+  color: white;
+  border: 2px solid  #1e5799;
+  background-color:  #144c8c;
+}
+
+.the_button:hover {
+  background: linear-gradient(62deg, rgb(20,76,140) 0%, rgb(19, 81, 151) 100%);
+}

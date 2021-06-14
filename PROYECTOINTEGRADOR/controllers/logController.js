@@ -50,7 +50,8 @@ module.exports = {
             db.Usuarios.create(createUser).then(usuario => {
                 req.session.usuario={
                     nombre: usuario.nombre_apellido, 
-                    usuario: usuario.usuario
+                    usuario: usuario.usuario,
+                    id: usuario.id
                 }
     
                 req.session.userId = usuario.id;
@@ -109,7 +110,8 @@ module.exports = {
                 console.log(usuario.usuario)
                 req.session.usuario = {
                     nombre: usuario.nombre_apellido, 
-                    usuario: usuario.usuario
+                    usuario: usuario.usuario,
+                    id: usuario.id
                 }
 
                 req.session.userId = usuario.id;

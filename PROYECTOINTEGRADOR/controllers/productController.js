@@ -16,6 +16,8 @@ module.exports = {
             res.render('product', {
                 lista: resultado
             });
+        }).catch(err => {
+            console.log(err)
         });
     },
 

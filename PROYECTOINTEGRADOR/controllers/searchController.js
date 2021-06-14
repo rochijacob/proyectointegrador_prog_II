@@ -12,7 +12,7 @@ module.exports = {
         };
         const usuario = {
             include: [
-                {include: "usuario"}
+                {association: 'usuario'}
             ]
         }
         console.log(filtro)

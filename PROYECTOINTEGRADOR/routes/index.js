@@ -26,11 +26,12 @@ router.get('/profile/:id', usuarioController.detalle); //perfil segun id
 router.get('/buscar', searchController.search); 
 
 router.get('/productModify/:id', productController.updateRender);
+router.get('/productAdd', homeController.productAdd);
 router.post('/productModify/:id', productController.updateProducto);
 router.post('/productAdd', homeController.agregarProducto);
 router.get('/todosProductos', homeController.todosProductos);
 
-router.get('/profileEdit', homeController.profileEdit);
+//router.get('/profileEdit', homeController.profileEdit);
 router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id
 //necesito dos metodos. 
 router.post('/profileEdit/:id', usuarioController.profileEdit);

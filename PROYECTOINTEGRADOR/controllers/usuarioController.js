@@ -6,7 +6,7 @@ module.exports = {
     detalle: (req, res) => {
         const filtro = { //los campos que quiero que traiga
             include: [
-                {association: 'producto'},
+                {association: 'producto', include: 'comentarios'},
                 {association: "comentarios"}
             ]
         }
@@ -34,8 +34,8 @@ module.exports = {
             where: {
                 id: req.body.id
             }
-        }).then((profileId) => {
-            res.redirect('/profile/' + profileId);
+        }).then(profileId => {
+            res.redirect('/profile/' + req.body.id);
         });
     }
 }

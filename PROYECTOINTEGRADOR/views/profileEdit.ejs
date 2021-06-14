@@ -66,9 +66,11 @@
 						 <input class="btn btn-primary" type="submit" value="Submit">
 				   </div> -->
 
-				<form action="/profileEdit" method="POST">
+				<form action="/profile/<%= usuario.id %>" method="POST">
 					<input type="hidden" name="id" value="<%=lista.id %>">
-					<input type="submit" value="Editar">
+					<div class="boton-by-ro">
+						<input class="the_button" type="submit" value="Editar">
+					</div>
 				</form>
 
 				</div>

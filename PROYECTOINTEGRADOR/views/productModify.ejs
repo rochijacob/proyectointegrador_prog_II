@@ -17,7 +17,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
-			<form  action="productAdd" method="POST" class="container_form">
+			<form  method="POST" class="container_form">
 				<div class="input-group mb-3 col-md-6 formulario">
 					<span class="input-group-text" id="basic-addon1">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -47,20 +47,15 @@
 				<!-- <p class="product-detail-description">
 					<a href="/product/<%= lista.id %>">Submit</a>
 				</p> -->
-				<form action="/modificar" method="POST">
+				<form action="product/<%=lista.id%>" method="POST" style="margin: 0 auto;">
 					<input type="hidden" name="id" value="<%= lista.id %>">
-					<input type="submit" value="Editar">
+					<div class="boton-by-ro">
+						<input class="the_button" type="submit" value="Editar">
+					</div>
+					
 				  </form>
 
 
-				<!-- <form action="/productAdd" method="POST">
-					<input type="hidden" name="id" value="<%= lista.id %>">
-					<input type="submit" value="Submit">
-				  </form> -->
-
-				<!-- <button class="boton"> 
-					 <a href="product/<%= lista.id %>/"><input class="btn btn-primary" type="submit" value="Submit"></a>
-				</button> -->
 			</form>
 			<!-- Show the "ultimos" products -->
 			<!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
