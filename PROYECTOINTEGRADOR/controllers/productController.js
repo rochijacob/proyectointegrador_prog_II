@@ -43,13 +43,18 @@ module.exports = {
         });
     },
     comentar: (req,res) => {
-        db.Comentarios.create({
-            texto: req.body.text,
-            usuario_id: usuario.id,
-            product_id: req.params.id
-        }).then((resultado) => {
-            console.log(resultado);
-        });
+        let error = {};
+        if(req.body.productId == res.locals.usuarioId){
+            db.Comentarios.create({
+                comentario: req.body.text,
+                usuario_id: req.session.usuarioId,
+                product_id: req.body.productId 
+            }).then(comentario =>{
+                res.redirect('/product/' + req.body.productId)
+            }).catch(err=>{
+                console.log(err)
+            })
+        }
     }
 
      

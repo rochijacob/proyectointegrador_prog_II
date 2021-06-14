@@ -18,7 +18,7 @@ module.exports = {
         console.log(filtro)
         console.log(usuario)
 
-        db.Productos.findAll(filtro, usuario).then(resultado => {
+        db.Productos.findAll(usuario, filtro).then(resultado => {
             console.log(resultado)
             res.render('searchResults', {
                 lista: resultado

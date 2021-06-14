@@ -29,7 +29,11 @@ router.get('/productModify/:id', productController.updateRender);
 router.get('/productAdd', homeController.productAdd);
 router.post('/productModify/:id', productController.updateProducto);
 router.post('/productAdd', homeController.agregarProducto);
+router.post('/comentar', productController.comentar);
+
 router.get('/todosProductos', homeController.todosProductos);
+
+
 
 //router.get('/profileEdit', homeController.profileEdit);
 router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id

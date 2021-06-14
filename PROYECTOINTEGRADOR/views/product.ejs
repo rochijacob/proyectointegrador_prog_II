@@ -46,9 +46,16 @@
 					<% })%>
 
 					</section>
+
+					
 					<form class="form" action="/comentar" method="POST" id="form"> <!-- METHOD POST-->
+						<%if(logueado == true){ %>
 						<input class="form-input" name="text" type="text" value="" placeholder="Agregar comentario">
+						<input class="form-input" type="hidden" name="productId" value="<%=lista.id%>">
 						<button type="submit" class="buy-now-button" id="add-comment">AGREGAR COMENTARIO</button>
+					<%} else{ %>
+						<button type="submit" class="buy-now-button">REGISTRATE!</button>
+					<%}%> 
 					</form>
 					<div class="thank-u">
 						<p id="demo"></p>
@@ -63,6 +70,5 @@
 	<!-- footer -->
 	<%- include('./partials/footer')%>
 	<!-- /footer -->
-	<script src="/javascripts/buttons.js"></script>
 </body>	
 </html>

@@ -70,6 +70,7 @@ app.use(function(req, res, next) {
     res.locals = { // se puede poner lo que queramos y despues se puede usar en la vista.es una variable disponible en todas las vistas. 
       logueado: true,
       usuario: req.session.usuario,
+      usuarioId: req.session.userId
     }
     console.log(res.locals)
   } else {
