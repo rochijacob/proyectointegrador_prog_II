@@ -14,10 +14,14 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title" style="text-transform: capitalize;"> <%= lista.nombre_producto %></h2> 
 			<!-- aca va el boton de editar -->
-			<p class="product-detail-description">
-				<a href="/productModify/<%= lista.id %>">Editar</a>
-			</p>
+		
 
+			<% if (logueado && usuarioId == lista.usuario.id)  { %>
+				<p class="product-detail-description">
+					<a href="/productModify/<%= lista.id %>">Editar</a>
+				</p>
+			<% } %>
+			
 			<form action="/borrar" method="POST">
 				<input type="hidden" name="id" value="<%= lista.id %>">
 				<input type="submit" value="Borrar">
