@@ -27,13 +27,6 @@ let homeController = {
             }).catch(err => {console.log(err)})
         })
     },
-
-    login: (req, res) => {
-        res.render('login')
-    },
-    product: (req, res) => {
-        res.render('product')
-    },
     profile: (req, res) => {
         res.render('profile')
     },
@@ -45,7 +38,12 @@ let homeController = {
     },
     // cambie el nombre, antes era search-results
     productAdd: (req, res) => {
-        res.render('productAdd')
+        if(req.session.usuario){
+           res.render('productAdd') 
+        } else {
+            res.redirect('/register/')
+        }
+        
     },
     agregarProducto: (req, res) => {
         db.Productos.create({

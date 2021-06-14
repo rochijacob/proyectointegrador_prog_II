@@ -12,8 +12,6 @@ const { Router } = require('express');
 router.get('/', homeController.index); //render del index y trae resultados por fecha
 
 
-router.get('/login', homeController.login);
-
 router.get('/product/:id', productController.detalle);
 router.post('/comentar', productController.comentar);
 router.post('/borrar', homeController.borrar);

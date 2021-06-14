@@ -12,7 +12,6 @@ module.exports = {
         }
         db.Productos.findByPk(req.params.id, filtro).then(resultado => {
             console.log(resultado.toJSON())
-
             res.render('product', {
                 lista: resultado
             });
@@ -22,12 +21,15 @@ module.exports = {
     },
 
     updateRender: (req, res)=> {
-        
-        db.Productos.findByPk(req.params.id).then(resultado => {
-            res.render('productModify', {
-                lista: resultado
+        if(req.session.usuario) {
+            db.Productos.findByPk(req.params.id).then(resultado => {
+                res.render('productModify', {
+                    lista: resultado
+                });
             });
-        });
+        } else {
+            res.redirect('/profile/' + req.params.id )
+        }
     },
     updateProducto: (req, res) => {
         db.Productos.update({
@@ -44,12 +46,13 @@ module.exports = {
     },
     comentar: (req,res) => {
         let error = {};
-        if(req.body.productId == res.locals.usuarioId){
+        if(res.locals.usuarioId){
             db.Comentarios.create({
-                comentario: req.body.text,
-                usuario_id: req.session.usuarioId,
+                texto: req.body.text,
+                usuario_id: req.session.userId,
                 product_id: req.body.productId 
             }).then(comentario =>{
+                console.log(comentario)
                 res.redirect('/product/' + req.body.productId)
             }).catch(err=>{
                 console.log(err)

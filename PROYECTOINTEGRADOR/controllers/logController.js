@@ -89,9 +89,9 @@ module.exports = {
 
     },
     loginForm: (req, res) => {
-        if(res.locals.logueado == false){
+        if(!req.session.usuario){
         res.render('login');
-    }else{
+        }else {
         res.redirect('/profile/' + req.session.userId)
         }
     },

@@ -65,17 +65,16 @@ app.use(function(req, res, next) {
 
 
 app.use(function(req, res, next) {
-  console.log(req.session.usuario)
   if(req.session.usuario){ //me permite guardar variables de la sesion --> las busco con <%= locals.logueado %>. Genero variables disponibles a todas las vistas, (=/= las rutas que me definian variables para cada vista)
     res.locals = { // se puede poner lo que queramos y despues se puede usar en la vista.es una variable disponible en todas las vistas. 
       logueado: true,
       usuario: req.session.usuario,
       usuarioId: req.session.userId
     }
-    console.log(res.locals)
   } else {
     res.locals = {
-      logueado: false
+      logueado: false,
+      usuario: "Anonimo"
     }
   }
 
