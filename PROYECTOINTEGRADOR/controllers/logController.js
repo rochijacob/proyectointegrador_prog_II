@@ -89,7 +89,11 @@ module.exports = {
 
     },
     loginForm: (req, res) => {
+        if(res.locals.logueado == false){
         res.render('login');
+    }else{
+        res.redirect('/profile/' + req.session.userId)
+        }
     },
 
     loginValidate: (req, res) => {
