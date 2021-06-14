@@ -17,8 +17,7 @@ Falta:
 - poner a todos los .then un catch
 
 Problemas:
-- En search no aparece usuario que cargo
-- En comentarios no aparece usuario que comento 
+
 - Como hacer que se ejecute el comentario 
 - Edit profile, apretar perfil headerlogged
 - update Producto falla
