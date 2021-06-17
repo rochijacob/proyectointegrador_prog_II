@@ -13,7 +13,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../public/images/users')
+        cb(null, 'public/images/users')
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -52,7 +52,6 @@ router.get('/todosProductos', homeController.todosProductos);
 //router.get('/profileEdit', homeController.profileEdit);
 router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id
 //necesito dos metodos. 
-router.post('/profileEdit/:id', usuarioController.profileEdit);
 router.post('/profileEdit/:id', upload.single('avatar'), usuarioController.profileEdit);
 
 

@@ -11,7 +11,6 @@ module.exports = {
             ]
         }
         db.Usuarios.findByPk(req.params.id, filtro).then(resultado => {
-            console.log(resultado.toJSON())
 
             res.render('profile', {
                 lista: resultado
@@ -34,13 +33,15 @@ module.exports = {
             nombre_apellido: req.body.nombre,
             email: req.body.email,
             usuario: req.body.usuario,
-            foto_perfil: req.file
+            foto_perfil: req.file.filename
         },{
             where: {
                 id: req.body.id
             }
         }).then(profileId => {
             res.redirect('/profile/' + req.body.id);
+        }).catch(err => {
+            console.log(err)
         });
     }
 }
