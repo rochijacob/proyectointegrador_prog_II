@@ -33,7 +33,8 @@ module.exports = {
         db.Usuarios.update({
             nombre_apellido: req.body.nombre,
             email: req.body.email,
-            usuario: req.body.usuario
+            usuario: req.body.usuario,
+            foto_perfil: req.file
         },{
             where: {
                 id: req.body.id

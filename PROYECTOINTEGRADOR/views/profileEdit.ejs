@@ -18,10 +18,11 @@
 			<div class="col-12">
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
-			<form class="edit_grid" method="POST" action="profileEdit" >
+			<form class="edit_grid" method="POST" action="profileEdit" enctype="multipart/form-data">
 				<div class="edit_foto">
 					<div class="img-container">
 						<img src="/images/users/gatito.jpg" alt="foto de perfil" class="foto-perfil">
+						<input type="file" name="avatar" alt="foto de perfil">
 						<a class="btn mt-3 ml-4" href="">CAMBIAR FOTO</a>
 					</div>
 				</div>

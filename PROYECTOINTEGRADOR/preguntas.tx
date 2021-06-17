@@ -17,9 +17,7 @@ Falta:
 - poner a todos los .then un catch
 
 Problemas:
-
 - Como hacer que se ejecute el comentario 
-- Edit profile, apretar perfil headerlogged
-- update Producto falla
-- Modificar producto me manda a 1
 - como hacemos que el editar SOLO le aparezca al perfil logueado
+- login aperece en usuario logueado
+-comment no carga

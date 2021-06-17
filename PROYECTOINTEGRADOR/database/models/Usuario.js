@@ -20,6 +20,9 @@ module.exports = (sequelize, dataTypes) => {
         pass: {
             type: dataTypes.STRING,
         },
+        foto_perfil: {
+            type: dataTypes.STRING,
+        }
     }, //configuracion
     {
         tableName: 'usuario',

@@ -15,7 +15,7 @@ CREATE TABLE usuario (
 
 SELECT * FROM usuario;
 
-ALTER TABLE usuario ADD foto_perfil TEXT;
+ALTER TABLE usuario ADD foto_perfil VARCHAR(255);
 
 CREATE TABLE producto (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
