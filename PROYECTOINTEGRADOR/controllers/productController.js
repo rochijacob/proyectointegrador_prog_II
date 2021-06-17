@@ -6,12 +6,11 @@ module.exports = {
     detalle: (req, res) => {
         const filtro = { //los campos que quiero que traiga
             include: [
-                {association: 'comentarios', include: 'usuario'},
+                {association: 'comentarios', include: 'usuario', order: ['createdAt', 'DESC']},
                 {association: 'usuario'}
             ]
         }
         db.Productos.findByPk(req.params.id, filtro).then(resultado => {
-            console.log(resultado.toJSON())
             res.render('product', {
                 lista: resultado
             });
@@ -21,14 +20,16 @@ module.exports = {
     },
 
     updateRender: (req, res)=> {
-        if(req.session.usuario) {
+        console.log(req.body.userId)
+        if(req.session.userId == req.body.userId) {
             db.Productos.findByPk(req.params.id).then(resultado => {
+                console.log(resultado)
                 res.render('productModify', {
                     lista: resultado
                 });
             });
         } else {
-            res.redirect('/profile/' + req.params.id )
+            res.redirect('/profile/' + req.session.userId )
         }
     },
     updateProducto: (req, res) => {

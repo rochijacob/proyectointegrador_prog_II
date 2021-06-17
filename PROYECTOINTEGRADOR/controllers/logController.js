@@ -33,7 +33,7 @@ module.exports = {
             where: {
                 email: req.body.email
             }
-        }). then(function(usuarios) {
+        }).then(function(usuarios) {
             console.log(usuarios)
             if(usuarios)  {
                 let error = "Este mail ya esta en uso"
@@ -61,31 +61,6 @@ module.exports = {
         }
         })
     }
-        /*
-        db.Usuarios.create({
-            nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
-            usuario: req.body.usuario,
-            email: req.body.email,
-            fecha_nacimiento: req.body.fechanacimiento,
-            pass: passEncriptada
-        }).then(usuario => { 
-            // ¿Que hace esto? ¿Que valores capta? ¿Y donde los veo? ¿Para que me sirve ?
-            console.log(usuario)
-            req.session.usuario={
-                nombre: usuario.nombre_apellido, 
-                usuario: usuario.usuario
-            }
-
-            req.session.userId = usuario.id;
-            res.redirect('../profile/' + usuario.id);
-            
-
-             //redirect tiene que ir al profile del usuario
-        })
-        .catch(err => {
-            // print the error details
-            console.log(err);
-        }); */
 
     },
     loginForm: (req, res) => {

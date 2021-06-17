@@ -18,7 +18,7 @@
 
 			<% if (logueado && usuarioId == lista.usuario.id)  { %>
 				<p class="product-detail-description">
-					<a href="/productModify/<%= lista.id %>">Editar</a>
+					<a href="/product/modify/<%= lista.id %>">Editar</a>
 				</p>
 			<% } %>
 
@@ -44,9 +44,14 @@
 					<section class="comments">
 						<%lista.comentarios.forEach(element => { %>						
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<% if (element.usuario.foto_perfil == "" || element.usuario.foto_perfil == null) { %> 
+								<img src="/images/users/gatito.jpg" alt="">
+							<% } else { %> 
+								<img src="../images/users/<%= element.usuario.foto_perfil %>" alt="">
+							<% }%>
 							<div class="data">
 								<p class="user">
+								<input type="hidden" name="userId" value="<%= lista.usuario_id %>">
 								<strong> <a href="/profile/<%=element.usuario_id%>"> <%= element.usuario.usuario %> </a> </strong>
 									<%= element.texto%> </p>
 							</div> 

@@ -28,24 +28,15 @@ const upload = multer({
 router.get('/', homeController.index); //render del index y trae resultados por fecha
 
 
-router.get('/product/:id', productController.detalle);
-router.post('/comentar', productController.comentar);
-router.post('/borrar', homeController.borrar);
-
-
 router.get('/profile/:id', usuarioController.detalle); //perfil segun id
 
 
 
 router.get('/buscar', searchController.search); 
 
-router.get('/productModify/:id', productController.updateRender);
-router.get('/productAdd', homeController.productAdd);
-router.post('/productModify/:id', productController.updateProducto);
-router.post('/productAdd', homeController.agregarProducto);
-router.post('/comentar', productController.comentar);
-
 router.get('/todosProductos', homeController.todosProductos);
+
+router.post('/comentar', productController.comentar);
 
 
 

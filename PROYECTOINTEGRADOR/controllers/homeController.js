@@ -27,14 +27,8 @@ let homeController = {
             }).catch(err => {console.log(err)})
         })
     },
-    profile: (req, res) => {
-        res.render('profile')
-    },
     headerLogueado: (req, res) => {
         res.render('headerLogueado')
-    },
-    searchResults: (req, res) => {
-        res.render('searchResults')
     },
     // cambie el nombre, antes era search-results
     productAdd: (req, res) => {
