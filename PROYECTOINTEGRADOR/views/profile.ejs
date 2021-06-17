@@ -17,7 +17,7 @@
 				<% if (lista.foto_perfil == "" || lista.foto_perfil == null) { %> 
 					<img src="/images/users/gatito.jpg" alt="foto de perfil" class="foto-perfil">
 				<% } else { %>
-					<img src="<%= lista.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
+					<img src="/images/users/<%= lista.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
 				<% } %>
 			</div>
 			<div class="data-container col-6">
