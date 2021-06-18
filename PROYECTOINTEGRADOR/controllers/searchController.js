@@ -7,19 +7,23 @@ module.exports = {
     search: (req, res) => {
         const filtro = {
             where: {
-                nombre_producto: {[Op.like]: '%' + req.query.filtro + '%'} // req.query.filtro capta el name de mi formulario de search y me trae los resultados que se asemejan a lo escrito
+                [Op.or]: [
+                    {
+                        nombre_producto: {[Op.like]: '%' + req.query.search + '%'} // req.query.filtro capta el name de mi formulario de search y me trae los resultados que se asemejan a lo escrito
+                    },
+                    {
+                        descripcion: {[Op.like]: '%' + req.query.search + '%'}
+                    }
+                ]
             },
-        };
-        const usuario = {
             include: [
-                {association: 'usuario'}
+                {association: 'usuario'},
+                {association: 'comentarios'}
             ]
-        }
+        };
         console.log(filtro)
-        console.log(usuario)
 
-        db.Productos.findAll(usuario, filtro).then(resultado => {
-            console.log(resultado)
+        db.Productos.findAll(filtro).then(resultado => {
             res.render('searchResults', {
                 lista: resultado
             });

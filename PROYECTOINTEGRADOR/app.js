@@ -50,7 +50,7 @@ app.use(function(req, res, next) {
     db.Usuarios.findByPk(req.cookies.userId).then(usuario => {
       req.session.usuario = {
         nombre: usuario.nombre_apellido, 
-        usuario: usuario.usuario
+        usuario: usuario.usuario,
     }
 
     req.session.userId = usuario.id;

@@ -35,9 +35,12 @@
 				</span>
 				<input type="password" class="form-control" name="pass" placeholder="Constraseña" aria-label="Contraseña" aria-describedby="basic-addon1" >
 			</div>
-			<div>
-				<Br> Recordame! <input type="checkbox" name="remember" id=""> </br>
+			<div style="text-align: center;" >
+				<div style="display: flex; flex-direction: row; align-items: center; justify-content: center;padding: 10px 0px;"> <input type="checkbox" name="remember" id=""> <span style="margin-left: 5px;">Recordame!</span></div>
 			</div>
+			<% if(error){ %>
+				<p style="display: block; color: red; text-align: center; font-size: 15px;"> <%=error%></p>
+			<%}%>
 			<hr class="my-4 line_break">
 				<div class="boton"> 
 					<a href="/"><input class="btn btn-primary" type="submit" value="Submit"></a>

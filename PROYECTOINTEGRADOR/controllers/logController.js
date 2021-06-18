@@ -22,8 +22,9 @@ module.exports = {
     },
 
     registerCreateUser: (req, res) => {
+
         // Encriptamos la contraseña antes de mandar a la base de datos
-        if(req.body.pass.lenght < 3) {
+        if(req.body.pass.length < 3) {
             let error = "Debe tener mas de 3 caracteres"
             res.render("register", {error:error});
         } else {
@@ -34,38 +35,48 @@ module.exports = {
                 email: req.body.email
             }
         }).then(function(usuarios) {
-            console.log(usuarios)
             if(usuarios)  {
                 let error = "Este mail ya esta en uso"
                 console.log(error)
                 res.render("register", {error:error})
             } else {
-                let createUser = {
-                    nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
-                    usuario: req.body.usuario,
-                    email: req.body.email,
-                    fecha_nacimiento: req.body.fechanacimiento,
-                    pass: passEncriptada
-                }
-            db.Usuarios.create(createUser).then(usuario => {
-                req.session.usuario={
-                    nombre: usuario.nombre_apellido, 
-                    usuario: usuario.usuario
-                }
-    
-                req.session.userId = usuario.id;
-                res.redirect('../profile/' + usuario.id);
-            }).catch(err => {
-                console.log(err);
-            })
-        }
+                db.Usuarios.findOne({where:{usuario: req.body.usuario}}).then(function(usuarios) {
+                    if (usuarios) {
+                        let error = "Este usuario ya existe"
+                        console.log(error)
+                        res.render("register", {error:error})
+                    } else {
+                        let createUser = {
+                            nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
+                            usuario: req.body.usuario,
+                            email: req.body.email,
+                            fecha_nacimiento: req.body.fechanacimiento,
+                            pass: passEncriptada
+                        }
+                        console.log(createUser)
+                        
+                    db.Usuarios.create(createUser).then(usuario => {
+                        req.session.usuario={
+                            nombre: usuario.nombre_apellido, 
+                            usuario: usuario.usuario
+                        }
+            
+                        req.session.userId = usuario.id;
+                        res.redirect('../profile/' + usuario.id);
+                    }).catch(err => {
+                        console.log(err);
+                    })
+                    }
+                })
+            }
         })
     }
 
     },
     loginForm: (req, res) => {
         if(!req.session.usuario){
-        res.render('login');
+            let error = null;
+            res.render('login', {error: error});
         }else {
         res.redirect('/profile/' + req.session.userId)
         }
@@ -103,8 +114,10 @@ module.exports = {
                     res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 }); //guarda la cookie, que se define del lado del cliente, en este caso mi objeto seria 'userId' (el nombre de la cookie)
                 }
                 res.redirect('../profile/' + usuario.id);
+            } else {
+                let error = "Ups! tus datos no coinciden con nuestra base de datos"
+                res.render('login', {error:error})
             }
-            res.redirect('/'); //inicio de sesion y que diga, bienvenido ....
         });
     },
 

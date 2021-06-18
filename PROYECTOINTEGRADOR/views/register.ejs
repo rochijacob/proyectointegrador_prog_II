@@ -34,9 +34,6 @@
 						  </svg>
 					</span>
 					<input type="email" class="form-control" name="email" placeholder="e-mail" aria-label="email" aria-describedby="basic-addon1" required>
-					<% if(error){ %>
-						<p> <%=error%></p>
-					<%}%>
 			
 
 				</div>
@@ -68,6 +65,9 @@
 					</span>
 					<input type="text" name="fechanacimiento" class="form-control nacimiento" placeholder="Fecha nacimiento AA/MM/DD" aria-label="Fecha de nacimiento" aria-describedby="basic-addon1" required>
 				</div>
+				<% if(error){ %>
+					<p style="display: block; color: red; text-align: center; font-size: 15px;"> <%=error%></p>
+				<%}%>
 
 				<hr class="my-4 line_break">
 				<div class="boton"> 

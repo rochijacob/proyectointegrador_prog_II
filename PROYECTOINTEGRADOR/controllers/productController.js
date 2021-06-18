@@ -20,17 +20,16 @@ module.exports = {
     },
 
     updateRender: (req, res)=> {
-        console.log(req.body.userId)
-        if(req.session.userId == req.body.userId) {
             db.Productos.findByPk(req.params.id).then(resultado => {
-                console.log(resultado)
-                res.render('productModify', {
-                    lista: resultado
-                });
-            });
-        } else {
-            res.redirect('/profile/' + req.session.userId )
-        }
+                if (req.session.usuario && req.session.userId == resultado.usuario_id){
+                    res.render('productModify', {
+                        lista: resultado
+                    });
+                } else {
+                    res.redirect('/product/add/new')
+                }
+            
+            }); 
     },
     updateProducto: (req, res) => {
         db.Productos.update({

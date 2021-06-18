@@ -14,6 +14,10 @@ module.exports = (sequelize, dataTypes) => {
         descripcion: {
             type:dataTypes.INTEGER
         },
+        usuario_id: {
+            type: dataTypes.INTEGER,
+            field: "usuario_id"
+        }
     },  //configuracion
     {
         tableName: 'producto',
