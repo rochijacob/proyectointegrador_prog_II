@@ -62,6 +62,14 @@ module.exports = {
             res.locals.error=error    
             res.redirect('/register/')
         }
+    },
+
+    index: (req,res)=>{
+        res.render('productAdd');
+    },
+
+    crear: (req,res)=>{
+        res.render('productAdd');
     }
 
      
