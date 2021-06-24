@@ -23,7 +23,7 @@
 			<% } %>
 
 			<% if (logueado && usuarioId == lista.usuario.id)  { %>
-				<form action="/borrar" method="POST">
+				<form action="/product/borrar" method="POST">
 					<input type="hidden" name="id" value="<%= lista.id %>">
 					<input type="submit" value="Borrar">
 				  </form>
