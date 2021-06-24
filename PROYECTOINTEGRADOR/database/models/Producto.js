@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
         imagen: {
-            type: dataTypes.TEXT
+            type: dataTypes.STRING
         },
         descripcion: {
             type:dataTypes.INTEGER

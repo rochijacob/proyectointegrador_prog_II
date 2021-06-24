@@ -60,7 +60,7 @@ let homeController = {
                 id: req.body.id
             }
         }).then(() => {
-            res.redirect('/productAdd/');
+            res.redirect('/');
         }).catch(error => {
             console.log(error)
         })

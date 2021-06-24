@@ -6,9 +6,10 @@ module.exports = {
     detalle: (req, res) => {
         const filtro = { //los campos que quiero que traiga
             include: [
-                {association: 'comentarios', include: 'usuario', order: ['createdAt', 'DESC']},
-                {association: 'usuario'}
-            ]
+                {association: 'comentarios', include: 'usuario'},
+                {association: 'usuario'},
+            ],
+            order: [[ 'comentarios' ,'createdAt', 'DESC']]
         }
         db.Productos.findByPk(req.params.id, filtro).then(resultado => {
             res.render('product', {

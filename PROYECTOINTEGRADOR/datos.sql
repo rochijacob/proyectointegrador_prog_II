@@ -30,9 +30,8 @@ CREATE TABLE producto (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
-SET FOREIGN_KEY_CHECKS=0; 
-SET FOREIGN_KEY_CHECKS=1; 
-DROP TABLE producto;
+ALTER TABLE producto
+MODIFY COLUMN imagen VARCHAR(255);
 
 
 SELECT * FROM producto;
