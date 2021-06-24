@@ -21,15 +21,15 @@ const upload = multer({
     storage: storage
 })
 
-router.get('/', productController.index);
-router.post('/multerPost', upload.single('imagen'), productController.crear);
+//router.get('/', productController.index);
+//router.post('/multerPost', upload.single('imagen'), productController.crear);
 
 router.get('/:id', productController.detalle);
 
 router.get('/modify/:id', productController.updateRender);
 router.get('/add/new', homeController.productAdd);
 router.post('/modify/:id', productController.updateProducto);
-router.post('/add/new', homeController.agregarProducto);
+router.post('/add/new', upload.single('imagen') ,homeController.agregarProducto);
 router.post('/comentar', productController.comentar);
 router.post('/borrar', homeController.borrar);
 

@@ -33,7 +33,7 @@ module.exports = {
     },
     updateProducto: (req, res) => {
         db.Productos.update({
-            imagen: req.body.imagen,
+            imagen: req.body.filename,
             nombre_producto: req.body.nombre,
             descripcion: req.body.descripcion
         },{
@@ -64,13 +64,7 @@ module.exports = {
         }
     },
 
-    index: (req,res)=>{
-        res.render('productAdd');
-    },
-
-    crear: (req,res)=>{
-        res.render('productAdd');
-    }
+    
 
      
 

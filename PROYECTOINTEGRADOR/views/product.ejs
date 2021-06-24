@@ -34,7 +34,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= lista.imagen %>" alt="" class="product-detail-img">
+					<img src="/images/products/ <%= lista.imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-fecha">Fecha de creacion: <%= lista.createdAt %></p>
 					<p class="product-detail-fecha">Creado por: <a href="/profile/<%= lista.usuario.id %>"> <%= lista.usuario.nombre_apellido %></a></p>
 					<p class="product-detail-description">
