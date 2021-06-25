@@ -36,7 +36,8 @@
 						<article class="product-box_data">
 							<h2><%= element.nombre_producto.charAt(0).toUpperCase() + element.nombre_producto.slice(1) %></h2>
 							<p><%= element.descripcion %></p>
-							<p>Comentarios: </p>
+							<p>Comentarios:<%=element.comentarios.length%> </p>
+							<p>Creado por:<a href="/profile/<%= element.usuario.id%>"><%=element.usuario.nombre_apellido%></a></p>
 						</article>
 					</a>
 				</section>
@@ -66,7 +67,8 @@
 							<article class="product-box_data">
 								<h2><%= element.nombre_producto.charAt(0).toUpperCase() + element.nombre_producto.slice(1) %></h2>
 								<p><%= element.descripcion %></p>
-								<p>Comentarios: </p>
+								<p>Comentarios:<%=element.comentarios.length%> </p>
+								<p>Creado por:<a href="/profile/<%= element.usuario.id%>"><%=element.usuario.nombre_apellido%></a></p>
 							</article>
 						</a>
 					</section>

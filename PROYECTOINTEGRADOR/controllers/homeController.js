@@ -8,21 +8,31 @@ let homeController = {
                 ['createdAt', 'DESC'],
             ],
             limit: 4, 
+            include: [
+                {association: 'usuario'},
+                {association: 'comentarios'}
+            ]
         }
         let productosViejos = {
             order: [
                 ['createdAt', 'ASC'],
             ],
             limit: 4, 
+            include: [
+                {association: 'usuario'},
+                {association: 'comentarios'}
+            ]
         }
         let filtro = {
             include: [
+                {association: 'usuario'},
                 {association: 'comentarios'}
             ]
         }
 
         db.Productos.findAll(productosNuevos, filtro).then(nuevos => {
             db.Productos.findAll(productosViejos, filtro).then(viejos => {
+                console.log(viejos);
                 res.render("index", {nuevos: nuevos, viejos: viejos})
             }).catch(err => {console.log(err)})
         })
