@@ -33,18 +33,32 @@ module.exports = {
             }); 
     },
     updateProducto: (req, res) => {
-        db.Productos.update({
-            imagen:req.body.imagen,
-            uploaded: req.file.filename,
-            nombre_producto: req.body.nombre,
-            descripcion: req.body.descripcion
-        },{
-            where: {
-                id: req.body.id
-            }
-        }).then((productoId) => {
-            res.redirect('/product/' + productoId);
-        });
+        if(req.file != undefined){
+            db.Productos.update({
+                imagen:req.body.imagen,
+                uploaded: req.file.filename,
+                nombre_producto: req.body.nombre,
+                descripcion: req.body.descripcion 
+            },{
+                where: {
+                    id: req.body.id
+                }
+            }).then(modified => {
+                res.redirect('/product/' + req.body.id)
+            })
+        } else {
+            db.Productos.update({
+                imagen:req.body.imagen,
+                nombre_producto: req.body.nombre,
+                descripcion: req.body.descripcion
+            },{
+                where: {
+                    id: req.body.id
+                }
+            }).then(modified => {
+                res.redirect('/product/' + req.body.id);
+            });
+        }
     },
     comentar: (req,res) => {
         let error = {};

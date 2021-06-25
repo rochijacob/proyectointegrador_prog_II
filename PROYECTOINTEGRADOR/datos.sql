@@ -9,13 +9,12 @@ CREATE TABLE usuario (
     email VARCHAR(150),
     fecha_nacimiento DATE,
     pass VARCHAR(255),
+    foto_perfil VARCHAR(255),
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 SELECT * FROM usuario;
-
-ALTER TABLE usuario ADD foto_perfil VARCHAR(255);
 
 CREATE TABLE producto (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -23,15 +22,14 @@ CREATE TABLE producto (
     usuario_id INT UNSIGNED,
     imagen TEXT,
     descripcion VARCHAR(255),
+    uploaded VARCHAR(255),
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     
     
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
 );
 
-ALTER TABLE producto
-MODIFY COLUMN imagen VARCHAR(255);
 
 
 SELECT * FROM producto;
@@ -44,8 +42,8 @@ CREATE TABLE comentarios (
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     
-    FOREIGN KEY (product_id) REFERENCES producto(id),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+    FOREIGN KEY (product_id) REFERENCES producto(id) ON DELETE CASCADE,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
     
 );
 
@@ -53,11 +51,11 @@ SELECT * FROM comentarios;
 
 
 INSERT INTO usuario (nombre_apellido, usuario, email, fecha_nacimiento, pass) VALUES
-('Valu Drechsler', 'valudrech', 'vdrechsler@udesa.edu.ar', '2000/04/13', 'qwerty1234'),
-('Naty Yemal', 'natyyemal', 'nyemal@udesa.edu.ar', '2001/03/14', 'qwerty1234'),
-('Rocio Jacob', 'rjacob', 'rjacob@udesa.edu.ar', '2000/10/20', 'qwerty1234'),
-('Angeles', 'ajacob', 'ajacob@udesa.edu.ar', '2002/12/10', 'qwerty1234'),
-('Paz', 'ajacob', 'pjacob@udesa.edu.ar', '2005/10/15', 'qwerty1234');
+('Valu Drechsler', 'valudrech', 'vdrechsler@udesa.edu.ar', '2000/04/13', '$2a$10$vHmVwXLX1QLYMr.ZNnNM0.GVlJ6O6pGbT1Ciu2ZNbjM30OIBOyRdi'),
+('Naty Yemal', 'natyyemal', 'nyemal@udesa.edu.ar', '2001/03/14', '$2a$10$vHmVwXLX1QLYMr.ZNnNM0.GVlJ6O6pGbT1Ciu2ZNbjM30OIBOyRdi'),
+('Rocio Jacob', 'rjacob', 'rjacob@udesa.edu.ar', '2000/10/20', '$2a$10$vHmVwXLX1QLYMr.ZNnNM0.GVlJ6O6pGbT1Ciu2ZNbjM30OIBOyRdi'),
+('Angeles', 'ajacob', 'ajacob@udesa.edu.ar', '2002/12/10', '$2a$10$vHmVwXLX1QLYMr.ZNnNM0.GVlJ6O6pGbT1Ciu2ZNbjM30OIBOyRdi'),
+('Paz', 'ajacob', 'pjacob@udesa.edu.ar', '2005/10/15', '$2a$10$vHmVwXLX1QLYMr.ZNnNM0.GVlJ6O6pGbT1Ciu2ZNbjM30OIBOyRdi');
 
 INSERT INTO producto (nombre_producto, usuario_id, imagen, descripcion) VALUES
 ('lapicera', 1, 'https://e.staedtlercdn.com/product-images/_processed_/1/4/csm_2909439_Productpicture_c94e4e0dbd.jpeg', 'STAEDTLER Concrete charcoal black'),

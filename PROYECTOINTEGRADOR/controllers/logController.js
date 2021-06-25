@@ -100,18 +100,18 @@ module.exports = {
             // con la que ingresada en el registro (usuario.pass)
             console.log(req.body.pass)  
             console.log(usuario.pass)
+            console.log(usuario.usuario)
+
+            if (req.body.name == usuario.usuario){
+            
             if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
-                console.log(usuario.usuario)
                 req.session.usuario = {
                     nombre: usuario.nombre_apellido, 
                     usuario: usuario.usuario,
                     id: usuario.id
                 }
-
                 req.session.userId = usuario.id;
                 
-
-                //PONER EL ELSE --> CONTRASEÑA INCORRECTA!!!!
                 //guardo lo que nescesito en la sesion
                
                 // En caso de que haya seleccionado recodarme, guardamos una cookie (check)
@@ -120,10 +120,18 @@ module.exports = {
                 }
                 res.redirect('../profile/' + usuario.id);
             } else {
-                let error = "Ups! tus datos no coinciden con nuestra base de datos"
+                let error = "Ups! tus datos no coinciden con nuestra base de datos contraseña"
                 res.render('login', {error:error})
             }
-        });
+        } else {
+            res.redirect('/')
+        }
+
+
+        
+    }).catch(err =>{
+        console.log(err)
+    });
     },
 
     logout: (req, res) => {
