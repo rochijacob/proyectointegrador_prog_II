@@ -16,9 +16,14 @@ module.exports = {
         }
     },
     registerForm: (req, res) => {
-        let error = null;
+        if(!req.session.usuario){
+            let error = null;
         console.log("error is" + error)
         res.render('register', {error: error});
+        }else{
+            res.redirect('/profile/' + req.session.userId)
+        }
+       
     },
 
     registerCreateUser: (req, res) => {
