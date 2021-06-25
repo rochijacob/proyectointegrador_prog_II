@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
         imagen: {
-            type: dataTypes.STRING
+            type: dataTypes.TEXT
         },
         descripcion: {
             type:dataTypes.INTEGER
@@ -17,6 +17,9 @@ module.exports = (sequelize, dataTypes) => {
         usuario_id: {
             type: dataTypes.INTEGER,
             field: "usuario_id"
+        },
+        uploaded: {
+            type:dataTypes.STRING
         }
     },  //configuracion
     {

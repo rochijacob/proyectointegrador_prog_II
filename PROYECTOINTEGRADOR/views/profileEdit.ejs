@@ -21,7 +21,11 @@
 			<form class="edit_grid" method="POST" action="profileEdit" enctype="multipart/form-data">
 				<div class="edit_foto">
 					<div class="img-container">
-						<img src="/images/users/gatito.jpg" alt="foto de perfil" class="foto-perfil">
+						<% if (lista.foto_perfil == "" || lista.foto_perfil == null) { %> 
+							<img src="/images/users/gatito.jpg" alt="foto de perfil" class="foto-perfil">
+						<% } else { %>
+							<img src="/images/users/<%= lista.foto_perfil %>" alt="foto de perfil" class="foto-perfil">
+						<% } %>
 						<input type="file" name="avatar" alt="foto de perfil">
 					</div>
 				</div>

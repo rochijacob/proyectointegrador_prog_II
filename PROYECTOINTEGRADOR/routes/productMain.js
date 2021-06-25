@@ -28,8 +28,8 @@ router.get('/:id', productController.detalle);
 
 router.get('/modify/:id', productController.updateRender);
 router.get('/add/new', homeController.productAdd);
-router.post('/modify/:id', productController.updateProducto);
-router.post('/add/new', upload.single('imagen') ,homeController.agregarProducto);
+router.post('/modify/:id',upload.single('uploaded'), productController.updateProducto);
+router.post('/add/new', upload.single('uploaded'), homeController.agregarProducto);
 router.post('/comentar', productController.comentar);
 router.post('/borrar', homeController.borrar);
 

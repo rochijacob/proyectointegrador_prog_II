@@ -34,7 +34,8 @@ module.exports = {
     },
     updateProducto: (req, res) => {
         db.Productos.update({
-            imagen: req.file.filename,
+            imagen:req.body.imagen,
+            uploaded: req.file.filename,
             nombre_producto: req.body.nombre,
             descripcion: req.body.descripcion
         },{

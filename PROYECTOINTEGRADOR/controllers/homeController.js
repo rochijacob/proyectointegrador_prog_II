@@ -41,7 +41,8 @@ let homeController = {
     },
     agregarProducto: (req, res) => {
         db.Productos.create({
-            imagen: req.body.imagen,
+            imagen:req.body.imagen,
+            uploaded: req.file.filename,
             nombre_producto: req.body.nombre,
             descripcion: req.body.descripcion,
             usuario_id: req.session.userId

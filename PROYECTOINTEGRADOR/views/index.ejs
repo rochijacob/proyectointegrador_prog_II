@@ -27,7 +27,11 @@
 				<section class="product-box">
 					<a href="/product/<%= element.id %>">
 						<figure class="product-box_image">
-							<img src="<%= element.imagen %>" alt="<%= element.nombre_producto %>" height="240px">
+							<% if(element.uploaded == "" || element.uploaded == null){ %>
+								<img src="<%= element.imagen %>" alt="<%= element.nombre_producto %>" height="240px">
+							<% } else { %>
+								<img src="/images/products/<%= element.uploaded %>" alt="<%= element.nombre_producto %>" height="240px">
+							<% } %>
 						</figure>
 						<article class="product-box_data">
 							<h2><%= element.nombre_producto.charAt(0).toUpperCase() + element.nombre_producto.slice(1) %></h2>
@@ -53,7 +57,11 @@
 					<section class="product-box">
 						<a href="/product/<%= element.id %>">
 							<figure class="product-box_image">
-								<img src="<%= element.imagen %>" alt="lapiz" height="240px">
+								<% if(element.uploaded == "" || element.uploaded == null){ %>
+									<img src="<%= element.imagen %>" alt="<%= element.nombre_producto %>" height="240px">
+								<% } else { %>
+									<img src="/images/products/<%= element.uploaded %>" alt="<%= element.nombre_producto %>" height="240px">
+								<% } %>
 							</figure>
 							<article class="product-box_data">
 								<h2><%= element.nombre_producto.charAt(0).toUpperCase() + element.nombre_producto.slice(1) %></h2>
