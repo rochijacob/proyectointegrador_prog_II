@@ -19,6 +19,7 @@ let homeController = {
             include: [
                 {association: 'comentarios'}
             ]
+            
         }
 
         db.Productos.findAll(productosNuevos, filtro).then(nuevos => {
