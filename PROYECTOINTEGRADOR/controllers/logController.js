@@ -98,13 +98,14 @@ module.exports = {
         db.Usuarios.findOne(filtro).then(usuario => {
             // Comparamos la contraseña ingresada en el login (req.body.pass)
             // con la que ingresada en el registro (usuario.pass)
-            console.log(req.body.pass)  
-            console.log(usuario.pass)
-            console.log(usuario.usuario)
 
-            if (req.body.name == usuario.usuario){
-            
-            if(bcrypt.compareSync(req.body.pass, usuario.pass)){ //hashSync encrpta, compareSynv desencripta y compara, true si la contra es correcta false si no
+            if(usuario == null){
+                let error = "Ups! tus datos no coinciden con nuestra base de datos usuario"
+                res.render('login', {error:error})
+            } else if (bcrypt.compareSync(req.body.pass, usuario.pass) == false){
+                let error = "Ups! tus datos no coinciden con nuestra base de datos contraseña"
+                res.render('login', {error:error})
+            } else {
                 req.session.usuario = {
                     nombre: usuario.nombre_apellido, 
                     usuario: usuario.usuario,
@@ -119,16 +120,7 @@ module.exports = {
                     res.cookie('userId', usuario.id, { maxAge: 1000 * 60 * 5 }); //guarda la cookie, que se define del lado del cliente, en este caso mi objeto seria 'userId' (el nombre de la cookie)
                 }
                 res.redirect('../profile/' + usuario.id);
-            } else {
-                let error = "Ups! tus datos no coinciden con nuestra base de datos contraseña"
-                res.render('login', {error:error})
             }
-        } else {
-            res.redirect('/')
-        }
-
-
-        
     }).catch(err =>{
         console.log(err)
     });

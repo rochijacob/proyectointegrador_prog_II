@@ -51,9 +51,21 @@ let homeController = {
         
     },
     agregarProducto: (req, res) => {
+        if(req.file != undefined){
+            db.Productos.create({
+                imagen:req.body.imagen,
+                uploaded: req.file.filename,
+                nombre_producto: req.body.nombre,
+                descripcion: req.body.descripcion,
+                usuario_id: req.session.userId
+            }).then(productoCreado => {
+                res.redirect('/product/' + productoCreado.id);
+            }).catch(error =>{
+                console.log(error);
+            })
+        } else {
         db.Productos.create({
             imagen:req.body.imagen,
-            uploaded: req.file.filename,
             nombre_producto: req.body.nombre,
             descripcion: req.body.descripcion,
             usuario_id: req.session.userId
@@ -62,6 +74,7 @@ let homeController = {
         }).catch(error =>{
             console.log(error);
         })
+    }
     },
     profileEdit: (req, res) => {
         res.render('profileEdit')

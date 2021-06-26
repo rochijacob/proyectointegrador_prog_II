@@ -49,7 +49,7 @@
 						<%lista.comentarios.forEach(element => { %>						
 						<article>
 							<% if (element.usuario.foto_perfil == "" || element.usuario.foto_perfil == null) { %> 
-								<img src="/images/users/gatito.jpg" alt="">
+								<img src="/images/users/no-image.png" alt="">
 							<% } else { %> 
 								<img src="../images/users/<%= element.usuario.foto_perfil %>" alt="">
 							<% }%>

@@ -228,3 +228,23 @@ a:hover {
 .the_button:hover {
   background: linear-gradient(62deg, rgb(20,76,140) 0%, rgb(19, 81, 151) 100%);
 }
+
+.end-session {
+  background: none;
+  border: 1.5px solid white;
+  border-radius: 5px;
+  color: white;
+}
+
+.end-session:hover {
+  border: 1.5px solid #0000009d;
+  color: #000000d8;
+  background: white;
+  transition: 0.7s;
+}
+
+.todos-productos {
+  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0px 40px;
+}
