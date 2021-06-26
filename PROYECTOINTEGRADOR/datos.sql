@@ -14,8 +14,6 @@ CREATE TABLE usuario (
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-SELECT * FROM usuario;
-
 CREATE TABLE producto (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	nombre_producto VARCHAR(255),
@@ -30,10 +28,6 @@ CREATE TABLE producto (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
 );
 
-
-
-SELECT * FROM producto;
-
 CREATE TABLE comentarios (
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	product_id INT UNSIGNED,
@@ -46,8 +40,6 @@ CREATE TABLE comentarios (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
     
 );
-
-SELECT * FROM comentarios;
 
 
 INSERT INTO usuario (nombre_apellido, usuario, email, fecha_nacimiento, pass) VALUES

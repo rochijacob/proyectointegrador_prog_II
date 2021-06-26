@@ -27,10 +27,11 @@ module.exports = (sequelize, dataTypes) => {
     });
 
     Producto.associate = (db) => { //db lo pasa el sequelize cli, en el index.js (el require esta ahi y me llega como parametro)
-        Producto.belongsTo(db.Usuarios, { //relacion uno a muchos 1 usuario, muchos productos
-            as: "usuario", //nombre de la relacion
+        Producto.belongsTo(db.Usuarios, { //relacion uno a muchos 1 usuario, muchos productos, nombre del modelo con el que se relaciona
+            as: "usuario", //nombre de la relacion --> se utiliza cuando la tengo que usar en el controlador
             foreignKey: "usuario_id" //nombre del campo con la clave foranea
         }); 
+        //El producto tiene muchos comentarios
         Producto.hasMany(db.Comentarios, {
             as: "comentarios",
             foreignKey: "product_id",
