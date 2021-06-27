@@ -54,7 +54,7 @@ let homeController = {
     agregarProducto: (req, res) => {
 
         if(req.session.usuario){
-            if(req.body.imagen = null || req.body.imagen == "" && req.file == undefined ){
+            if(req.body.imagen == null || req.body.imagen == "" && req.file == undefined ){
                 let error = "Debes elegir una imagen"
                 res.render('productAdd', {error:error}) 
             } else if (req.body.nombre == null || req.body.nombre == "", req.body.descripcion == null  || req.body.descripcion == "" ) {
@@ -63,7 +63,6 @@ let homeController = {
             } else {
                 if(req.file != undefined){
                     db.Productos.create({
-                        imagen:req.body.imagen,
                         uploaded: req.file.filename,
                         nombre_producto: req.body.nombre,
                         descripcion: req.body.descripcion,
@@ -74,6 +73,7 @@ let homeController = {
                         console.log(error);
                     })
                 } else {
+                console.log(req.body.imagen)
                 db.Productos.create({
                     imagen:req.body.imagen,
                     nombre_producto: req.body.nombre,

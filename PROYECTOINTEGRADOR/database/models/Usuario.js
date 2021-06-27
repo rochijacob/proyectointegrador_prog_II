@@ -7,18 +7,25 @@ module.exports = (sequelize, dataTypes) => {
         },
         nombre_apellido: {
             type: dataTypes.STRING,
+            allowNull: false
         },
         usuario: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull: false,
+            unique: true
         },
         email: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            allowNull: false,
+            unique: true
         },
         fecha_nacimiento: {
-            type: dataTypes.DATEONLY
+            type: dataTypes.DATEONLY,
+            allowNull: false
         },
         pass: {
             type: dataTypes.STRING,
+            allowNull: false
         },
         foto_perfil: {
             type: dataTypes.STRING,
