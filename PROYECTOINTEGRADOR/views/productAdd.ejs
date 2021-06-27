@@ -52,19 +52,15 @@
 					</span>
 					<input name="descripcion" type="text" class="form-control" placeholder="Descripción" aria-label="descripcion" aria-describedby="basic-addon1" required>
 				</div>
+				<% if(error){ %>
+					<p style="display: block; color: red; text-align: center; font-size: 15px;"> <%=error%></p>
+				<%}%>
 				
 				
 				<div class="boton"> 
 					 <a href="/product/"><input class="btn btn-primary" type="submit" value="Submit"></a>
 				</div>
 			</form>
-			<!-- Show the "ultimos" products -->
-			<!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2> -->
 
 
 	<!-- footer -->

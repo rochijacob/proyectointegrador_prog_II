@@ -44,6 +44,7 @@ router.post('/comentar', productController.comentar);
 router.get('/profileEdit/:id', usuarioController.detalleProfile); //editar perfil segun id
 //necesito dos metodos. 
 router.post('/profileEdit/:id', upload.single('avatar'), usuarioController.profileEdit);
+router.post('/borrar', usuarioController.borrarPerfil )
 
 
 router.get('/register', logController.registerForm);

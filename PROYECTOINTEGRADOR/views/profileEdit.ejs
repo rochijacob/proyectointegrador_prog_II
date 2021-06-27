@@ -18,7 +18,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
-			<form class="edit_grid" method="POST" action="profileEdit" enctype="multipart/form-data">
+			<form class="edit_grid" method="POST" action="/profileEdit/<%= lista.id %>" enctype="multipart/form-data" style="margin: 40px;">
 				<div class="edit_foto">
 					<div class="img-container">
 						<% if (lista.foto_perfil == "" || lista.foto_perfil == null) { %> 
@@ -55,37 +55,35 @@
 						</span>
 						<input type="text" class="form-control" name="usuario" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" value="<%= lista.usuario%>" required>
 					</div>
-					<!-- <div class="input-group mb-3 col-md-6 formulario">
-						<span class="input-group-text" id="basic-addon1">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-								<path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-							  </svg>
-						</span>
-						<input type="password" class="form-control" placeholder="Constraseña" aria-label="Constraseña" aria-describedby="basic-addon1" value="<%= lista.pass%>" required>
-					</div> -->
-	
-					
-					<!-- <hr class="my-4 line_break">
-					<div class="boton"> 
-						 <input class="btn btn-primary" type="submit" value="Submit">
-				   </div> -->
 
-				<form action="/profile/<%= usuario.id %>" method="POST">
+		
 					<input type="hidden" name="id" value="<%=lista.id %>">
 					<div class="boton-by-ro">
 						<input class="the_button" type="submit" value="Editar">
 					</div>
-				</form>
+				
 
 				</div>
 			</form>
-			<!-- Show the "ultimos" products -->
-			<!-- <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de edición de datos del perfil de usuario. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos deñ usuario<br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2> -->
+			<% if(error){ %>
+				<p style="display: block; color: red; text-align: center; font-size: 15px;"> <%=error%></p>
+			<%}%>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-12">
+			<h2 class="products-title">Borrar perfil</h2>
+			<h4>Uy! Lamentamos que quieras irte &#128546; para eliminar tu perfil hace click en el siguiente boton</h4>
+		</div>
+
+		<form action="/borrar" method="POST">
+			<input type="hidden" name="id" value="<%= lista.id %>">
+			<input class="borrar-button" type="submit" value="Borrar">
+		  </form>
+
+
 	</div>
 	<!-- footer -->
 	<%- include('./partials/footer')%>

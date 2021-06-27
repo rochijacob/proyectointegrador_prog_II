@@ -44,37 +44,51 @@ let homeController = {
     // cambie el nombre, antes era search-results
     productAdd: (req, res) => {
         if(req.session.usuario){
-           res.render('productAdd') 
+            let error = null
+           res.render('productAdd', {error:error}) 
         } else {
             res.redirect('/register/')
         }
         
     },
     agregarProducto: (req, res) => {
-        if(req.file != undefined){
-            db.Productos.create({
-                imagen:req.body.imagen,
-                uploaded: req.file.filename,
-                nombre_producto: req.body.nombre,
-                descripcion: req.body.descripcion,
-                usuario_id: req.session.userId
-            }).then(productoCreado => {
-                res.redirect('/product/' + productoCreado.id);
-            }).catch(error =>{
-                console.log(error);
-            })
+
+        if(req.session.usuario){
+            if(req.body.imagen = null || req.body.imagen == "" && req.file == undefined ){
+                let error = "Debes elegir una imagen"
+                res.render('productAdd', {error:error}) 
+            } else if (req.body.nombre == null || req.body.nombre == "", req.body.descripcion == null  || req.body.descripcion == "" ) {
+                let error = "Es nescesario que nombres y describas tu producto"
+                res.render('productAdd', {error:error}) 
+            } else {
+                if(req.file != undefined){
+                    db.Productos.create({
+                        imagen:req.body.imagen,
+                        uploaded: req.file.filename,
+                        nombre_producto: req.body.nombre,
+                        descripcion: req.body.descripcion,
+                        usuario_id: req.session.userId
+                    }).then(productoCreado => {
+                        res.redirect('/product/' + productoCreado.id);
+                    }).catch(error =>{
+                        console.log(error);
+                    })
+                } else {
+                db.Productos.create({
+                    imagen:req.body.imagen,
+                    nombre_producto: req.body.nombre,
+                    descripcion: req.body.descripcion,
+                    usuario_id: req.session.userId
+                }).then(productoCreado => {
+                    res.redirect('/product/' + productoCreado.id);
+                }).catch(error =>{
+                    console.log(error);
+                })
+                }
+            }
         } else {
-        db.Productos.create({
-            imagen:req.body.imagen,
-            nombre_producto: req.body.nombre,
-            descripcion: req.body.descripcion,
-            usuario_id: req.session.userId
-        }).then(productoCreado => {
-            res.redirect('/product/' + productoCreado.id);
-        }).catch(error =>{
-            console.log(error);
-        })
-    }
+            res.redirect('/register/')
+        }
     },
     profileEdit: (req, res) => {
         res.render('profileEdit')

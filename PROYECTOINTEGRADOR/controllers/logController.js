@@ -29,54 +29,60 @@ module.exports = {
     registerCreateUser: (req, res) => {
 
         // Encriptamos la contraseña antes de mandar a la base de datos
-        if(req.body.pass.length < 3) {
-            let error = "Debe tener mas de 3 caracteres"
-            res.render("register", {error:error});
+        if (req.body.nombre == null || req.body.nombre == "",  req.body.usuario  == null || req.body.usuario == "", req.body.email  == null || req.body.email == "", req.body.pass  == null || req.body.pass == "", req.body.fechanacimiento  == null || req.body.fechanacimiento == "" ){
+            let error = "Por favor llenar todos los campos"
+            console.log(error)
+            res.render("register", {error:error})
         } else {
-        let passEncriptada = bcrypt.hashSync(req.body.pass); //pass tiene que coincidir con el formulario
-
-        db.Usuarios.findOne({
-            where: {
-                email: req.body.email
-            }
-        }).then(function(usuarios) {
-            if(usuarios)  {
-                let error = "Este mail ya esta en uso"
-                console.log(error)
-                res.render("register", {error:error})
+            if(req.body.pass.length < 3) {
+                let error = "Debe tener mas de 3 caracteres"
+                res.render("register", {error:error});
             } else {
-                db.Usuarios.findOne({where:{usuario: req.body.usuario}}).then(function(usuarios) {
-                    if (usuarios) {
-                        let error = "Este usuario ya existe"
-                        console.log(error)
-                        res.render("register", {error:error})
-                    } else {
-                        let createUser = {
-                            nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
-                            usuario: req.body.usuario,
-                            email: req.body.email,
-                            fecha_nacimiento: req.body.fechanacimiento,
-                            pass: passEncriptada
-                        }
-                        console.log(createUser)
-                        
-                    db.Usuarios.create(createUser).then(usuario => {
-                        req.session.usuario={
-                            nombre: usuario.nombre_apellido, 
-                            usuario: usuario.usuario
-                        }
-            
-                        req.session.userId = usuario.id;
-                        res.redirect('../profile/' + usuario.id);
-                    }).catch(err => {
-                        console.log(err);
-                    })
-                    }
-                })
-            }
-        })
-    }
+            let passEncriptada = bcrypt.hashSync(req.body.pass); //pass tiene que coincidir con el formulario
 
+            db.Usuarios.findOne({
+                where: {
+                    email: req.body.email
+                }
+            }).then(function(usuarios) {
+                if(usuarios)  {
+                    let error = "Este mail ya esta en uso"
+                    console.log(error)
+                    res.render("register", {error:error})
+                } else {
+                    db.Usuarios.findOne({where:{usuario: req.body.usuario}}).then(function(usuarios) {
+                        if (usuarios) {
+                            let error = "Este usuario ya existe"
+                            console.log(error)
+                            res.render("register", {error:error})
+                        } else {
+                            let createUser = {
+                                nombre_apellido: req.body.nombre, //nombre se refiere al campo name de mi formulario
+                                usuario: req.body.usuario,
+                                email: req.body.email,
+                                fecha_nacimiento: req.body.fechanacimiento,
+                                pass: passEncriptada
+                            }
+                            console.log(createUser)
+                            
+                        db.Usuarios.create(createUser).then(usuario => {
+                            req.session.usuario = {
+                                nombre: usuario.nombre_apellido, 
+                                usuario: usuario.usuario,
+                                email: usuario.email
+                            }
+                
+                            req.session.userId = usuario.id;
+                            res.redirect('../profile/' + usuario.id);
+                        }).catch(err => {
+                            console.log(err);
+                        })
+                        }
+                    })
+                }
+            })
+            }
+        }
     },
     loginForm: (req, res) => {
         if(!req.session.usuario){

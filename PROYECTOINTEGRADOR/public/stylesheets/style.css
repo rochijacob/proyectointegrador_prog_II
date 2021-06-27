@@ -248,3 +248,18 @@ a:hover {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 0px 40px;
 }
+
+.borrar-button {
+  padding: 5px 20px;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 20px;
+  border: 1px solid red;
+  border-radius: 5px;
+  background: #ff000014;
+  box-shadow: 3px 3px 9px 1px #0000001c;
+}
+
+.borrar-button:hover {
+  transform: scale(1.01);
+}

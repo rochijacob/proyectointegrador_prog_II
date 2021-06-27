@@ -51,6 +51,7 @@ app.use(function(req, res, next) {
       req.session.usuario = {
         nombre: usuario.nombre_apellido, 
         usuario: usuario.usuario,
+        email: usuario.email
     }
 
     req.session.userId = usuario.id;
