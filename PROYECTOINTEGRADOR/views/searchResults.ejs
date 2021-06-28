@@ -19,7 +19,11 @@
 		<% lista.forEach(element => { %>
 		<div class="results_producto" href="/product/<%= element.id %>">
 			<div class="results_image">
-				<img src="<%= element.imagen %>" alt=" <%= element.nombre_producto %>" width="20px">
+				<% if(element.uploaded == "" || element.uploaded == null){ %>
+						<img src="<%= element.imagen %>" alt="<%= element.nombre_producto %>" width="20px">
+				<% } else { %>
+					<img src="/images/products/<%= element.uploaded %>" alt="<%= element.nombre_producto %>" width="20px">
+				<% } %>
 			</div>
 			<div class="results_info">
 				<h1 class="results_nombre_producto"><%= element.nombre_producto %> </h1> <!-- Es el lista: resultado que defini en el controlador -->
