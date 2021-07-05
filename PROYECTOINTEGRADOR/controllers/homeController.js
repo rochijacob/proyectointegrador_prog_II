@@ -1,3 +1,5 @@
+// objeto literal con varios metodos que cada uno atiende a un request en particular. 
+//Intermediario entre modelos y las vistas
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
 

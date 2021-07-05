@@ -1,10 +1,12 @@
+//logica que maneja los request de los clientes
+//requiero variables necesarias para el proyecto
 var express = require('express');
 var router = express.Router();
 let homeController = require ('../controllers/homeController');
 let searchController = require ('../controllers/searchController');
 let productController = require ('../controllers/productController');
 const logController = require('../controllers/logController');
-let usuarioController = require('../controllers/usuarioController')
+let usuarioController = require('../controllers/usuarioController');
 const { Router } = require('express');
 
 const multer = require('multer');
